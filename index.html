@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة Quez التفاعلية | ثقافه بصريه الفصل الثالث عناصر التكوين الفوتوغرافي</title>
+    <title>منصة Quez التفاعلية | التكوين والثقافة البصرية</title>
     <!-- Tailwind CSS for premium responsive styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Cairo for perfect Arabic typography -->
+    <!-- Google Fonts: Cairo & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for modern crisp icons -->
+    <!-- FontAwesome for modern icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -40,7 +41,7 @@
     
     <style>
         .glass {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(15, 23, 42, 0.45);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -72,14 +73,14 @@
     <!-- Top Header -->
     <header class="sticky top-0 z-40 glass w-full border-b border-slate-800 light:border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <!-- Logo with dynamic gradient animation -->
+            <!-- Logo with dynamic gradient -->
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-tr from-brand-600 to-indigo-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-brand-500/20 animate-pulse">
-                    <span class="text-xl tracking-tighter">Q</span>
+                <div class="w-10 h-10 bg-gradient-to-tr from-brand-600 to-indigo-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-brand-500/20">
+                    <span class="text-xl tracking-tighter font-sans">Q</span>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold bg-gradient-to-r from-brand-400 to-indigo-400 bg-clip-text text-transparent">Quez</h1>
-                    <p class="text-[10px] text-slate-400 light:text-slate-500 -mt-1 font-sans">اثقافه بصريه الفصل الثالث عناصر التكوين الفوتوغرافي</p>
+                    <h1 class="text-xl font-bold bg-gradient-to-r from-brand-400 to-indigo-400 bg-clip-text text-transparent">Quez AI</h1>
+                    <p class="text-[10px] text-slate-400 light:text-slate-500 -mt-1">الفصل الثالث: التكوين والثقافة البصرية</p>
                 </div>
             </div>
 
@@ -101,7 +102,7 @@
                 </div>
             </div>
 
-            <!-- Theme and reset buttons -->
+            <!-- Theme and Reset Controls -->
             <div class="flex items-center gap-2">
                 <button onclick="toggleTheme()" class="p-2.5 rounded-lg hover:bg-slate-900 light:hover:bg-slate-100 transition-all text-slate-300 light:text-slate-700" title="تغيير المظهر">
                     <i id="themeIcon" class="fa-solid fa-sun"></i>
@@ -125,7 +126,7 @@
                 </div>
 
                 <!-- Color Keys -->
-                <div class="grid grid-cols-2 gap-2 text-[10px]">
+                <div class="grid grid-cols-2 gap-2 text-[10px] text-slate-400">
                     <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 bg-slate-800 rounded"></span> غير محلول</div>
                     <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 bg-emerald-500 rounded"></span> إجابة صحيحة</div>
                     <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 bg-rose-500 rounded"></span> إجابة خاطئة</div>
@@ -134,7 +135,7 @@
 
                 <!-- Matrix Grid -->
                 <div id="questionMatrix" class="grid grid-cols-5 gap-1.5 max-h-[380px] overflow-y-auto pr-1">
-                    <!-- Dynamic buttons will be injected here -->
+                    <!-- Dynamic buttons injected via JS -->
                 </div>
             </div>
 
@@ -179,16 +180,16 @@
             <!-- Filters Tabs -->
             <div class="glass p-2 rounded-xl flex items-center justify-between gap-2 overflow-x-auto">
                 <div class="flex items-center gap-1">
-                    <button onclick="setDifficultyFilter('all')" id="filter-all" class="px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-brand-600 text-white transition-all">الكل (100)</button>
-                    <button onclick="setDifficultyFilter('direct')" id="filter-direct" class="px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap text-slate-400 hover:text-slate-200 transition-all">مستوى 1: مباشر</button>
-                    <button onclick="setDifficultyFilter('hard')" id="filter-hard" class="px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap text-slate-400 hover:text-slate-200 transition-all">مستوى 2: صعب</button>
-                    <button onclick="setDifficultyFilter('expert')" id="filter-expert" class="px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap text-slate-400 hover:text-slate-200 transition-all">مستوى 3: معقد</button>
-                    <button onclick="setDifficultyFilter('incorrect')" id="filter-incorrect" class="px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition-all hidden">الأسئلة الخاطئة (<span id="incorrectFilterCount">0</span>)</button>
+                    <button onclick="setDifficultyFilter('all')" id="filter-all" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-brand-600 text-white transition-all">الكل (100)</button>
+                    <button onclick="setDifficultyFilter('direct')" id="filter-direct" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap text-slate-400 hover:text-slate-200 transition-all">مستوى 1</button>
+                    <button onclick="setDifficultyFilter('hard')" id="filter-hard" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap text-slate-400 hover:text-slate-200 transition-all">مستوى 2</button>
+                    <button onclick="setDifficultyFilter('expert')" id="filter-expert" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap text-slate-400 hover:text-slate-200 transition-all">مستوى 3</button>
+                    <button onclick="setDifficultyFilter('incorrect')" id="filter-incorrect" class="px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition-all hidden">الخاطئة (<span id="incorrectFilterCount">0</span>)</button>
                 </div>
                 
                 <div class="flex items-center gap-1.5 px-2">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span class="text-xs text-slate-400" id="currentViewCount">سؤال 1 من 100</span>
+                    <span class="text-xs text-slate-400 whitespace-nowrap" id="currentViewCount">سؤال 1 من 100</span>
                 </div>
             </div>
 
@@ -196,15 +197,15 @@
             <div id="quizCard" class="glass p-6 md:p-8 rounded-3xl flex flex-col gap-6 relative min-h-[420px]">
                 <div class="flex flex-wrap items-center justify-between gap-2">
                     <div class="flex items-center gap-2">
-                        <span id="questionCategoryTag" class="px-3 py-1 bg-brand-500/10 text-brand-400 rounded-full text-xs font-semibold">التزييف وكشف التضليل</span>
+                        <span id="questionCategoryTag" class="px-3 py-1 bg-brand-500/10 text-brand-400 rounded-full text-xs font-semibold">التكوين والإنشاء البصري</span>
                         <span id="questionDifficultyTag" class="px-3 py-1 bg-teal-500/10 text-teal-400 rounded-full text-xs font-semibold">مستوى مباشر</span>
                     </div>
-                    <!-- Audio, explanation, bookmarks -->
+                    <!-- Audio, Explanation, Bookmarks -->
                     <div class="flex items-center gap-1">
                         <button onclick="speakQuestion()" class="p-2 rounded-lg hover:bg-slate-800 text-slate-300" title="استمع للسؤال">
                             <i class="fa-solid fa-volume-high"></i>
                         </button>
-                        <button onclick="toggleBookmark()" id="bookmarkBtn" class="p-2 rounded-lg hover:bg-slate-800 text-slate-400" title="أجل السؤال لاحقاً">
+                        <button onclick="toggleBookmark()" id="bookmarkBtn" class="p-2 rounded-lg hover:bg-slate-800 text-slate-400" title="أجل السؤال لاحقاً / ضع علامة">
                             <i class="fa-regular fa-bookmark"></i>
                         </button>
                     </div>
@@ -212,13 +213,13 @@
 
                 <div class="flex-grow my-2">
                     <h2 id="questionText" class="text-lg md:text-xl font-bold leading-relaxed text-slate-100 light:text-slate-900">
-                        جاري تحميل المفهوم التعليمي...
+                        جاري تحميل الأسئلة والمفاهيم الجمالية...
                     </h2>
                 </div>
 
                 <!-- Answer options -->
                 <div id="optionsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3.5 my-3">
-                    <!-- Dynamic option buttons -->
+                    <!-- Dynamic option buttons injected via JS -->
                 </div>
 
                 <!-- Feedback / Explanation Box -->
@@ -226,10 +227,9 @@
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2 text-brand-400 font-bold text-sm">
                             <i class="fa-solid fa-circle-info"></i>
-                            <span>التغذية الراجعة والتصويب:</span>
+                            <span>التصويب والتغذية الراجعة العلمية:</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <div id="retrySingleQuestionPlaceholder"></div>
                             <button onclick="triggerAiExplanation()" class="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white rounded-lg text-xs font-bold shadow-lg transition-all">
                                 <i class="fa-solid fa-wand-magic-sparkles animate-pulse"></i>
                                 <span>شرح Quez AI التفاعلي</span>
@@ -243,7 +243,7 @@
                             <i class="fa-solid fa-robot animate-bounce"></i>
                             <span>تحليل الذكاء الاصطناعي الفوري:</span>
                         </div>
-                        <p id="aiResponseText" class="text-xs text-slate-300 leading-relaxed"></p>
+                        <p id="aiResponseText" class="text-xs text-slate-300 leading-relaxed font-sans">جاري الاستقصاء الفني عبر محرك الجيل القادم...</p>
                     </div>
                 </div>
 
@@ -263,28 +263,27 @@
                 </div>
             </div>
 
-            <!-- Guidance banner -->
+            <!-- Guidance Banner -->
             <div class="glass p-4 rounded-xl flex items-center gap-3 text-xs text-slate-400 light:text-slate-600">
-                <span class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400"><i class="fa-solid fa-shield-halved"></i></span>
-                <p>مرحبًا بك في منصة <b>Quez</b> لـ <b>الأخبار الكاذبة والتزييف العميق والتحقق الرقمي</b>. يحتوي هذا التحديث على 100 سؤال دقيق تفرز مهارتك في التحري وتقصي البيانات! استمتع بالتعلم والتحليل الفوري الفائق.</p>
+                <span class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400"><i class="fa-solid fa-palette"></i></span>
+                <p>مرحبًا بك في منصة <b>Quez AI</b> لدراسة الفنون البصرية والتكوين الإنشائي. تحتوي هذه النسخة على 100 فكرة دقيقة تغطي قوانين المنظور، الفراغ السلبي والايجابي، والتأثيرات الفيزيائية والنفسية في بناء الكادر الفني.</p>
             </div>
         </section>
     </main>
 
-    <!-- Final results dashboard -->
+    <!-- Final Results Dashboard -->
     <div id="resultsDashboard" class="fixed inset-0 z-50 bg-slate-950/95 flex overflow-y-auto hidden">
         <div class="max-w-4xl mx-auto my-auto p-4 md:p-8 w-full relative">
             <div class="glass p-6 md:p-10 rounded-3xl flex flex-col gap-8 border border-slate-800 shadow-2xl relative">
                 
-                <!-- Close Button (X) to return to Main Board -->
-                <button onclick="closeResults()" class="absolute top-4 right-4 md:top-6 md:right-6 text-slate-400 hover:text-slate-100 transition-colors p-2 rounded-lg hover:bg-slate-900" title="إغلاق والعودة للرئيسية">
-                    <i class="fa-solid fa-xmark text-xl md:text-2xl"></i>
+                <button onclick="closeResults()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-100 transition-colors p-2 rounded-lg hover:bg-slate-900">
+                    <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
 
                 <div class="text-center flex flex-col items-center gap-2 pt-4">
-                    <span class="text-5xl">🕵️‍♂️🔍</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-brand-400 via-indigo-400 to-emerald-400 bg-clip-text text-transparent">تهانينا! لقد أتممت منصة التحدي بنجاح</h2>
-                    <p class="text-slate-400 text-sm">لقد واجهت 100 فكرة دقيقة وحرجة تغطي كشف الشائعات، تقييم المصادر بنظام IMVAIN، وأدوات التحقيق العكسي وتحليل الصور والفيديو.</p>
+                    <span class="text-5xl">🎨📏</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-brand-400 via-indigo-400 to-emerald-400 bg-clip-text text-transparent">رائع! لقد أتممت اختبار التكوين البصري بنجاح</h2>
+                    <p class="text-slate-400 text-sm">لقد واجهت 100 مفهوم فني معقد حول القوانين الأكاديمية والمعاصرة للتصميم والتكوين الهندسي والجوي.</p>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -306,13 +305,13 @@
                     </div>
                 </div>
 
-                <!-- Action Button Matrix -->
+                <!-- Action buttons in results -->
                 <div class="flex flex-wrap items-center justify-center gap-4">
                     <button onclick="retryAllMistakes()" id="resRetryMistakesBtn" class="px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-xl transition-all text-sm flex items-center gap-2 shadow-lg shadow-amber-600/15">
                         <i class="fa-solid fa-arrows-rotate"></i> إعادة حل الأسئلة الخاطئة
                     </button>
                     <button onclick="copyScoresToClipboard()" class="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-bold rounded-xl transition-all text-sm flex items-center gap-2">
-                        <i class="fa-solid fa-share-nodes"></i> مشاركة النتيجة
+                        <i class="fa-solid fa-share-nodes"></i> مشاركة النتيجة والتقرير
                     </button>
                     <button onclick="resetQuiz()" class="px-6 py-3 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl transition-all text-sm flex items-center gap-2">
                         <i class="fa-solid fa-arrow-rotate-right"></i> إعادة المحاولة من جديد
@@ -322,18 +321,18 @@
         </div>
     </div>
 
-    <!-- Interactive toast -->
+    <!-- Toast system -->
     <div id="toast" class="fixed bottom-6 right-6 z-50 glass px-5 py-3 rounded-xl border border-slate-800 flex items-center gap-2 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
         <span id="toastIcon" class="text-brand-400"><i class="fa-solid fa-circle-check"></i></span>
         <span id="toastMsg" class="text-xs text-slate-200"></span>
     </div>
 
-    <!-- Reset Confirmation Dialog -->
+    <!-- Reset Modal -->
     <div id="resetModal" class="fixed inset-0 z-50 bg-slate-950/80 items-center justify-center flex hidden">
         <div class="glass p-6 rounded-2xl max-w-sm w-full mx-4 flex flex-col gap-4 text-center">
             <span class="text-3xl text-rose-500"><i class="fa-solid fa-triangle-exclamation"></i></span>
             <h3 class="text-lg font-bold">إعادة التعيين بالكامل؟</h3>
-            <p class="text-xs text-slate-400">ستفقد تقدمك الحالي وجميع الإجابات المسجلة في هذا المقرر.</p>
+            <p class="text-xs text-slate-400">ستفقد تقدمك الحالي وجميع الإجابات المسجلة في هذا الاختبار التفاعلي.</p>
             <div class="grid grid-cols-2 gap-2 mt-2">
                 <button onclick="resetQuiz()" class="py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-xl text-xs font-bold">نعم، متأكد</button>
                 <button onclick="closeResetModal()" class="py-2 bg-slate-900 text-slate-300 rounded-xl text-xs font-bold border border-slate-800">إلغاء</button>
@@ -341,689 +340,652 @@
         </div>
     </div>
 
+    <!-- JavaScript logic and the 100 questions array -->
     <script>
-       const fullQuiz = [
-    // --- الجزء الأول: 50 سؤال صح وخطأ (TF) ---
-    { id: 1, type: "tf", question: "يرى الأكاديميون أن مصطلح 'التصميم' أكثر شمولاً من 'التكوين'.", answer: false, explanation: "المعاصرون يفضلون 'التصميم'، الأكاديميون يفضلون 'التكوين'." },
-    { id: 2, type: "tf", question: "جيوفري كاتر يصف التكوين الناجح بأنه الذي يوجه عين المشاهد لامتصاص الموضوع.", answer: true, explanation: "كاتر ربط النجاح بامتصاص انتباه المشاهد." },
-    { id: 3, type: "tf", question: "الرسوم التوضيحية غرضها الأساسي التعبير عن مشاعر الفنان الخاصة.", answer: false, explanation: "غرضها الاتصال البصري والذهني لخدمة رسالة." },
-    { id: 4, type: "tf", question: "الصور الفوتوغرافية العادية ميزة للمصمم لأنها لا تشتت المشاهد.", answer: false, explanation: "الصور العادية سبب في إخفاق التصميم." },
-    { id: 5, type: "tf", question: "تعتمد الصور المولدة بالكمبيوتر (CGI) على بيانات رياضية.", answer: true, explanation: "تعتمد على الدقة الرياضية لمحاكاة الواقع." },
-    { id: 6, type: "tf", question: "أندرو لوميس يشجع المصممين على التخمين في الرسم.", answer: false, explanation: "لوميس قال: لا تخمن أبداً بينما تستطيع إيجاد الواقع." },
-    { id: 7, type: "tf", question: "التأثر باللون في الصورة المرجعية قاعدة ذهبية للنجاح.", answer: false, explanation: "من الأخطاء الشائعة التي تضعف التصميم." },
-    { id: 8, type: "tf", question: "النقطة في التكوين هي ظاهرة مجردة تعمل كمركز جذب.", answer: true, explanation: "النقطة موقع ذهني وبصري." },
-    { id: 9, type: "tf", question: "تدرك العين النقطة كشكل فقط عندما تكون منفردة.", answer: false, explanation: "تدرك كأشكال عند التجمع بكثافات مختلفة." },
-    { id: 10, type: "tf", question: "المصمم المبدع يرى الخط كمجرد علامة للقلم.", answer: false, explanation: "المبدع يراه منظماً للفراغ ووسيلة للجمال." },
-    { id: 11, type: "tf", question: "الخط هو الوسيلة الأولى لتحديد مبدأ تداخل الفراغات.", answer: true, explanation: "الخط يحدد المساحة والأشكال." },
-    { id: 12, type: "tf", question: "تنشأ الأشكال المسطحة عند اتصال الخطوط.", answer: true, explanation: "الشكل منطقة ثنائية الأبعاد محددة." },
-    { id: 13, type: "tf", question: "المربع شكل أساسي والمكعب مجسم أساسي.", answer: true, explanation: "الأشكال مسطحة، المجسمات لها حجم." },
-    { id: 14, type: "tf", question: "المجسمات الإيهامية كائنات لها وزن مادي حقيقي.", answer: false, explanation: "هي صور خداعية توحي بالعمق في فضاء ثنائي." },
-    { id: 15, type: "tf", question: "المنظور فن تصوير الأشياء بحيث تبدو تتسع كلما زادت المسافة.", answer: false, explanation: "قانون المنظور هو التصاغر لا الاتساع." },
-    { id: 16, type: "tf", question: "في منظور النقطة الواحدة، تلتقي جميع خطوط الكادر في نقطة التلاشي.", answer: false, explanation: "الخطوط المنحسرة فقط تلتقي." },
-    { id: 17, type: "tf", question: "أسلوب التقصير يجعل الكائن يبدو أطول مما هو عليه.", answer: false, explanation: "يجعله يبدو أقل عمقاً أو أقرب (منضغط)." },
-    { id: 18, type: "tf", question: "لنجاح التقصير يجب الثقة بالعين والتخلي عن المعرفة بالنسب.", answer: true, explanation: "المعرفة المسبقة قد تعيق رسم الزوايا الحادة." },
-    { id: 19, type: "tf", question: "استخدام زوايا منظورية غير مألوفة يضعف الإدراك البصري.", answer: false, explanation: "تستثير حاسة البصر وتجذب الانتباه." },
-    { id: 20, type: "tf", question: "المنظور الحجمي يعتمد على ظاهرة ثبات الحجم.", answer: true, explanation: "ثبات الحجم يفسر تغير الحجم بالمسافة." },
-    { id: 21, type: "tf", question: "من أخطاء منظور النقطتين وقوعهما بعيداً خارج الكادر.", answer: false, explanation: "الخطأ وقوعهما قريبتين جداً." },
-    { id: 22, type: "tf", question: "منظور الثلاث نقاط يستخدم للزوايا الدراماتيكية.", answer: true, explanation: "النقطة الثالثة تتحكم في الارتفاع والانخفاض." },
-    { id: 23, type: "tf", question: "في المنظور الجوي الأجسام البعيدة أكثر تشبعاً.", answer: false, explanation: "الأجسام البعيدة أقل تشبعاً وأفتح." },
-    { id: 24, type: "tf", question: "الشروط الجوية لا تؤثر على قواعد المنظور الجوي.", answer: false, explanation: "الشروط الجوية تغير الألوان والضوء." },
-    { id: 25, type: "tf", question: "الحركة في الجرافيك يجب أن تكون فعلية وملموسة.", answer: false, explanation: "قد تكون إيحائية لتوجيه العين." },
-    { id: 26, type: "tf", question: "الفراغ السلبي مساحة ضائعة يجب تقليلها.", answer: false, explanation: "عنصر ضروري لإبراز الأشكال." },
-    { id: 27, type: "tf", question: "الحاجة للعمق تتولد عند تساوي الفراغ السلبي والإيجابي.", answer: true, explanation: "التعادل يرهق العين فيلجأ المصمم للعمق." },
-    { id: 28, type: "tf", question: "الفراغ التصويري هو فراغ حقيقي يمكن قياسه بالمسطرة.", answer: false, explanation: "فراغ يعتمد على الخيال لإيهام العين." },
-    { id: 29, type: "tf", question: "ملصق فيلم لينكولن اعتمد على الفراغ النفسي.", answer: true, explanation: "الفراغ النفسي يوجه الانتباه والشعور." },
-    { id: 30, type: "tf", question: "الفراغ الفيزيائي يرتبط بالعناصر الجمالية ويخضع للمنطق.", answer: true, explanation: "المصمم يوازن فيه بين الوظيفة والجمال." },
-    { id: 31, type: "tf", question: "الأسلوب الفني مجرد تقنية ولا يعكس مزاج الفنان.", answer: false, explanation: "الأسلوب هو بصمة وهوية الفنان." },
-    { id: 32, type: "tf", question: "الأسلوب الفني قد يعادل العدم إذا لم توجد هوية.", answer: true, explanation: "لا شيء يعادل العدم مثل عدم وجود أسلوب." },
-    { id: 33, type: "tf", question: "الضوء مسؤول عن الكشف عن بنية الكائنات وتفاصيلها.", answer: true, explanation: "بدون ضوء لا نرى شكلاً ولا تفاصيل." },
-    { id: 34, type: "tf", question: "لإبراز الموضوع يجب جعل الإضاءة حوله باهتة ومساوية.", answer: false, explanation: "يجب أن يكون الموضوع أكثر نصوعاً." },
-    { id: 35, type: "tf", question: "يُنصح بمراجعة الظل والنور بعيون نصف مقفلة.", answer: true, explanation: "هذه التقنية تبرز القيم وتخفي الألوان." },
-    { id: 36, type: "tf", question: "التباين في الإضاءة غرضه توحيد الألوان وجعلها باهتة.", answer: false, explanation: "غرضه إبراز الأشكال بوضوح." },
-    { id: 37, type: "tf", question: "ليندا روبن عرفت عناصر التكوين بأنها مفردات المصمم.", answer: true, explanation: "العناصر هي حروف جملة المصمم." },
-    { id: 38, type: "tf", question: "ديفيد دابنر يرى التكوين اهتماماً بالأجزاء الفردية فقط.", answer: false, explanation: "يرى رؤية متكاملة تسبق الأجزاء." },
-    { id: 39, type: "tf", question: "في منظور الثلاث نقاط يتم قصر المسافة لإحداث تشوه.", answer: true, explanation: "القرب يضغط الأبعاد ويزيد الدراما." },
-    { id: 40, type: "tf", question: "الأجسام البعيدة في المنظور الجوي تميل للأسود الصريح.", answer: false, explanation: "تميل لدرجات فاتحة وباهتة." },
-    { id: 41, type: "tf", question: "المباني شاهقة الارتفاع تتغير صفاتها المنظورية.", answer: true, explanation: "الارتفاع الشاهق يعمل كالمسافة الأفقية." },
-    { id: 42, type: "tf", question: "الصور الرقمية حفزت المصممين لإضافة مؤثرات رقمية.", answer: true, explanation: "التحول الرقمي فتح باب المعالجة اللانهائية." },
-    { id: 43, type: "tf", question: "السيادة تعني أن جميع العناصر تتنافس بنفس القوة.", answer: false, explanation: "تعني وجود قائد وتوابع." },
-    { id: 44, type: "tf", question: "يمكن للخط إعطاء مظهر مجسم بتقنية التهشير.", answer: true, explanation: "تكرار الخطوط يحاكي الظل والنور." },
-    { id: 45, type: "tf", question: "الخداع البصري وظيفة المجسمات الواقعية.", answer: false, explanation: "وظيفة المجسمات الإيهامية." },
-    { id: 46, type: "tf", question: "خط الأفق تلتقي فيه نقاط التلاشي في كل أنواع المنظور.", answer: false, explanation: "في الثلاث نقاط، النقطة الثالثة خارج الأفق." },
-    { id: 47, type: "tf", question: "استخدام الصورة المرجعية هو نفسه النسخ التام.", answer: false, explanation: "النسخ جمود، الإلهام ابتكار." },
-    { id: 48, type: "tf", question: "خطوط النقطة الواحدة تلتقي في نقطة VP.", answer: true, explanation: "VP هي Vanishing Point." },
-    { id: 49, type: "tf", question: "الفراغ الحقيقي هو المنطقة التي يحتلها التكوين فعلياً.", answer: true, explanation: "المساحة المتاحة للعمل." },
-    { id: 50, type: "tf", question: "لا يمكن جمع التجريد والواقعية في عمل واحد.", answer: false, explanation: "الأسلوب كيان مرن يدمج التناقضات." },
+        // API Configuration (Gemini API for explainers)
+        const apiKey = ""; // Set dynamically in runtime environment
+        
+        // Comprehensive database of 100 Composition and Visual Culture Concepts
+        const rawQuestions = [
+            // Part 1: True / False (1 to 50)
+            { id: 1, level: "direct", type: "tf", question: "يرى الأكاديميون أن مصطلح 'التصميم' أكثر شمولاً من 'التكوين' لأنه يتضمن التحريف المتعمد للصيغ الطبيعية.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: المعاصرون (وليس الأكاديميين) هم من يفضلون كلمة 'التصميم' لهذا السبب، بينما يفضل الأكاديميون كلاسيكياً مصطلح 'التكوين'. التغذية الراجعة: الفخ هنا في نسبة المبدأ للجهة الخطأ؛ الأكاديميون يميلون للتقليد والترتيب الكلاسيكي." },
+            { id: 2, level: "direct", type: "tf", question: "يصف 'جيوفري كاتر' التكوين الناجح بأنه الذي يوجه عين المشاهد لامتصاص الموضوع والارتباط به.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: كاتر ربط نجاح العمل بقدرته على 'امتصاص' انتباه المشاهد كلياً والاندماج معه بصرياً ونفسياً." },
+            { id: 3, level: "direct", type: "tf", question: "الرسوم التوضيحية (Illustrations) تُعتبر 'فناً عملياً' لأن غرضها الأساسي هو التعبير عن مشاعر الفنان الخاصة فقط.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: غرضها الأساسي هو 'الاتصال البصري والذهني' لخدمة رسالة معينة (دعاية، شرح منتج). التغذية الراجعة: الفن العملي مرتبط بالوظيفة والاتصال، وليس مجرد التعبير البصري الذاتي للفنان." },
+            { id: 4, level: "direct", type: "tf", question: "في التصوير الفوتوغرافي، الصور العادية التي لا تلفت الانتباه تُعد ميزة للمصمم لأنها لا تشتت المشاهد عن النص.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: الصور العادية قد تكون سبباً رئيسياً في 'إخفاق' التصميم وتجنب تصفحه؛ ويجب أن يكون هناك مبرر قوي ومثير لاختيار الصورة. التغذية الراجعة: المصمم يبحث دوماً عن صورة 'مثيرة للانتباه' لتدعيم الفكرة ونقلها بفعالية." },
+            { id: 5, level: "direct", type: "tf", question: "تعتمد الصور المولدة بالكمبيوتر (CGI) على بيانات رياضية لكنها قد تبدو نابضة بالحياة لدرجة يصعب تمييزها عن الواقع.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: هذا هو جوهر التطور الرقمي والنمذجة ثلاثية الأبعاد؛ محاكاة الواقع المادي بدقة رياضية بصرية فائقة." },
+            { id: 6, level: "direct", type: "tf", question: "أندرو لوميس يشجع المصممين على 'التخمين' في رسم الأشكال لزيادة القدرة التخيلية.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: لوميس قال بوضوح: 'لا تخمن أبداً بينما تستطيع أن تجد الواقع'. التغذية الراجعة: الابتكار الواعي والراسخ يبدأ من فهم الواقع وقوانينه الطبيعية أولاً وليس من التخمين العشوائي." },
+            { id: 7, level: "direct", type: "tf", question: "التأثر باللون الموجود في الصورة المرجعية يُعد من القواعد الذهبية التي تضمن نجاح مفاهيم التصميم.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: التأثر باللون في الصورة المرجعية يعتبر من 'الأخطاء الشائعة' التي تضعف مفهوم التصميم الشخصي وتجبره على قيود خارجية. التغذية الراجعة: اللون يجب أن يخدم مفهوم المصمم الخاص لا أن يفرضه المصدر المرجعي." },
+            { id: 8, level: "direct", type: "tf", question: "النقطة في التكوين البصري هي ظاهرة مجردة قد لا تُرى بالعين ولكن يُشعر بها كمركز جذب بصري داخل الفراغ.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: النقطة ليست مساحة أو شكلاً بل هي 'موقع' ذهني وبصري يعمل كمحور ارتكاز للعين." },
+            { id: 9, level: "direct", type: "tf", question: "تدرك العين 'النقطة' كـ 'شكل' (Shape) فقط عندما تكون منفردة تماماً في فراغ واسع.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: تدرك كأشكال عندما تظهر كمجموعات متجاورة بكثافات مختلفة. التغذية الراجعة: الكثافة والاصطفاف والتقارب يحولون النقطة من علامة بسيطة إلى شكل هندسي أو عضوي متكامل." },
+            { id: 10, level: "direct", type: "tf", question: "المصمم المبدع يرى الخط كمجرد 'علامة للقلم' على السطح لتحديد النصوص الجرافيكية والمساحات.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: المبدع يرى الخط كمنظم للفراغ ووسيلة للجمال اللامحدود والتعبير الحركي، بينما الشخص العادي يراه مجرد علامة جافة. التغذية الراجعة: رؤية الخط الفلسفية والجمالية تفرق بين الهاوي والفنان المحترف." },
+            { id: 11, level: "direct", type: "tf", question: "الخط هو الوسيلة الأولى المستخدمة لتحديد مبدأ 'تداخل الفراغات والأشكال' وإحداث التقاطعات.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: بدون الخط والحد الخارجي لا يمكن حصر أو بناء مساحة أو شكل يتداخل ويتشابك مع غيره من العناصر." },
+            { id: 12, level: "direct", type: "tf", question: "تنشأ 'الأشكال المسطحة' (Shapes) عند اتصال الخطوط لتحيط مساحة فراغية معينة وتعزلها عما حولها.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: الشكل هو منطقة ثنائية الأبعاد محددة المعالم والحدود الهندسية أو الطبيعية العضوية." },
+            { id: 13, level: "direct", type: "tf", question: "الفرق الوحيد بين المربع والمكعب هو أن المربع يُسمى 'شكل أساسي' والمكعب 'مجسم أساسي'.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: الأشكال (Shapes) مسطحة ثنائية الأبعاد، بينما المجسمات (Forms) لها عمق أو حجم أو تقع في فضاء ثلاثي الأبعاد." },
+            { id: 14, level: "direct", type: "tf", question: "المجسمات 'الإيهامية' (Illusory Forms) هي كائنات لها وزن مادي وحجم حقيقي في الفراغ الطبيعي الملموس.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: هي صور خداعية توحي بالعمق والتجسيم في فضاء ثنائي الأبعاد (رسم مسطح). التغذية الراجعة: الإيهام هو خداع البصر والذهن بالبعد الثالث حيث لا يوجد عمق حقيقي." },
+            { id: 15, level: "direct", type: "tf", question: "المنظور (Perspective) هو فن تصوير الأشياء بحيث تبدو وكأنها تتسع كلما زادت المسافة داخل العمل البصري.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: تبدو وكأنها 'تتقلص وتتلاشى' داخل المسافة وتخلق إحساساً بالعمق اللانهائي. التغذية الراجعة: قانون المنظور الرياضي مبني على 'التصاغر والانحسار' وليس الاتساع." },
+            { id: 16, level: "direct", type: "tf", question: "في منظور النقطة الواحدة، تلتقي جميع خطوط الكادر (الأفقية والرأسية والمائلة) في نقطة التلاشي.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: الخطوط 'المنحسرة والعميقة' فقط هي التي تلتقي، أما الرأسية والأفقية فتظل موازية ومطابقة لحدود الصفحة. التغذية الراجعة: هذا هو أساس 'المواجهة الكادرية' في منظور النقطة الواحدة الكلاسيكي." },
+            { id: 17, level: "direct", type: "tf", question: "أسلوب 'التقصير' (Foreshortening) يجعل الكائن يبدو أطول مما هو عليه نتيجة لزاوية الرؤية البعيدة.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: يجعله يبدو 'أقل عمقاً أو أقرب مسافة' مما هو عليه فعلياً (يبدو قصيراً ومنضغطاً ومندفعاً للأمام). التغذية الراجعة: التقصير هو تشويه مقصود للنسب الهندسية لإظهار الاندفاع الحاد نحو عين المشاهد." },
+            { id: 18, level: "direct", type: "tf", question: "لكي ينجح المصمم في رسم 'التقصير' ببراعة، يجب عليه الثقة بما تراه عينه والتحرر عما يعرفه مسبقاً عن الأحجام النسبية الكلاسيكية للأجسام.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: المعرفة الذهنية المسبقة بالنسب والأحجام المعتادة تعيق تمثيل الزوايا الحادة والتعديلات التشويهية للتقصير البصري." },
+            { id: 19, level: "direct", type: "tf", question: "استخدام زوايا منظورية غير مألوفة يضعف عملية الإدراك البصري ويجعل المشاهد ينصرف سريعاً عن تفاصيل التصميم.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: الزوايا غير التقليدية 'تستثير حاسة البصر' وتجذب الانتباه وتجعل المشاهد أكثر انغماساً وتحليلاً لمكونات التصميم. التغذية الراجعة: الغرابة البصرية والزوايا الديناميكية هي أهم أدوات الجذب الإعلاني والفني." },
+            { id: 20, level: "direct", type: "tf", question: "المنظور الحجمي (Size Perspective) يعتمد بصورة مباشرة على ظاهرة نفسية وبصرية معروفة تسمى 'ثبات الحجم' في عقلنا البشري.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: نحن نعرف مسبقاً أن الأشياء ثابتة الحجم في الواقع، فإذا صغرت في الصورة أدرك عقلنا تلقائياً أنها على مسافة بعيدة." },
+            { id: 21, level: "direct", type: "tf", question: "من الأخطاء الشائعة في منظور النقطتين وقوع نقطتي التلاشي بعيداً جداً عن بعضهما خارج كادر العمل الفني.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: الخطأ الفادح هو وقوعهما 'قريبتين جداً' من بعضهما داخل مجال الرؤية، مما يسبب تشوهاً وانضغاطاً غير طبيعي للأشكال والزوايا. التغذية الراجعة: الإبعاد التدريجي لنقاط التلاشي يحقق زاوية رؤية مريحة وواقعية." },
+            { id: 22, level: "direct", type: "tf", question: "منظور 'الثلاث نقاط' يستخدم أساساً لإنشاء لقطات كاميرا دراماتيكية ومثيرة للرهبة مثل (Upshot) أو (Downshot).", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: النقطة الثالثة الرأسية هي التي تتحكم في مستويات الارتفاع أو الانخفاض الشاهق مما يضفي مهابة على المباني والكتل المعمارية." },
+            { id: 23, level: "direct", type: "tf", question: "في المنظور الجوي، تصبح الأجسام البعيدة أكثر نصوعاً وتشبعاً بالألوان وقوة في التباين من الأجسام القريبة.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: تصبح 'أقل تشبعاً' وأفتح وأخف تبياناً وتتلاشى تفاصيلها الهندسية نحو ألوان الغلاف الجوي الباردة. التغذية الراجعة: الجو بذرّاته ورطوبته يعمل كفلتر يقلل حدة الضوء واللون كلما بعدت المسافة." },
+            { id: 24, level: "direct", type: "tf", question: "الشروط الجوية الخاصة (مثل عاصفة ترابية أو ضباب أو لحظة الغروب) لا تؤثر على القواعد والنسب التقليدية للمنظور الجوي.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: قد تبدل هذه الشروط الرؤية التي اعتدنا عليها تماماً وتغير الألوان وتفاصيل الضوء الساقط بطرق دراماتيكية مختلفة. التغذية الراجعة: الطقس هو 'المتغير الفيزيائي' الذي يكسر نمطية المنظور الجوي الكلاسيكي." },
+            { id: 25, level: "direct", type: "tf", question: "الحركة في التصميم الجرافيكي والصور الثابتة يجب أن تكون فعلية وملموسة لكي يشعر بها المشاهد وينجذب إليها.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: قد تكون الحركة 'إيحائية وتوجيهية' غرضها قيادة مسار بصر المشاهد عبر مسارات بصرية وخطوط وهمية مصممة بعناية داخل العمل. التغذية الراجعة: الحركة الجرافيكية هي 'رحلة العين الاستكشافية' داخل التكوين." },
+            { id: 26, level: "direct", type: "tf", question: "الفراغ السلبي (Negative Space) هو مساحة ضائعة وغير مستغلة يجب على المصمم تقليصها وإلغائها قدر الإمكان لملء اللوحة.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: الفراغ السلبي هو عنصر تصميمي جوهري وضروري لإبراز الأشكال وتوليد مساحات للراحة الذهنية والتنفس البصري. التغذية الراجعة: الفراغ المدروس هو الذي يمنح القيمة البصرية للأشكال والرموز النشطة." },
+            { id: 27, level: "direct", type: "tf", question: "الحاجة للعمق المكاني تتولد تلقائياً وتلجأ إليها العين عندما يتساوى الفراغ السلبي والايجابي في التصميم المسطح.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: التماثل المسطح المطلق يسبب جموداً ويرهق العين بصرياً، مما يدفع المصمم لصنع عمق فراغي لراحة الإدراك الحسي." },
+            { id: 28, level: "direct", type: "tf", question: "الفراغ 'التصويري' (Pictorial Space) هو فراغ فيزيائي حقيقي وملموس يمكن قياس أبعاده بالمسطرة والوحدات المترية.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: هو فراغ وهمي مبني على 'الخيال الخلاق' وحيل التمثيل البصري لخداع عقل وعين المشاهد بالعمق داخل مستوى مسطح. التغذية الراجعة: هو مساحة افتراضية تتشكل خلف إطار اللوحة ثنائية الأبعاد." },
+            { id: 29, level: "direct", type: "tf", question: "ملصق فيلم 'Lincoln' اعتمد بصورة مباشرة على مفهوم 'الفراغ النفسي' للتأثير على عقل المشاهد وتوجيه نظره لحالة العزلة والتفكير.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: الفراغ النفسي والدرامي المحيط بالشخصية يعكس الحالة الشعورية العميقة والمناخ الفكري للفيلم دون استخدام كلمات." },
+            { id: 30, level: "direct", type: "tf", question: "الفراغ 'الفيزيائي' في التصميم هو الذي يرتبط بالعناصر الجمالية والوظيفية ويخضع للتقييم والحكم العقلي للمصمم.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: المصمم يوازن عقلياً بين متطلبات الوظيفة الإعلانية أو التوضيحية والجمال الشكلي في توزيع هذا الفراغ." },
+            { id: 31, level: "direct", type: "tf", question: "الأسلوب الفني (Artistic Style) هو مجرد 'تقنية تنفيذية' ولا يعكس بحال ثقافة الفنان، مرجعياته، أو مزاجه العام.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: هو 'البصمة الفكرية والشخصية' ويعبر بعمق عن الثقافة التراكمية، المهارات، والمزاج الإبداعي للفنان. التغذية الراجعة: الأسلوب هو 'الهوية الفنية' المتكاملة للمبدع." },
+            { id: 32, level: "direct", type: "tf", question: "الأسلوب الفني قد يعادل 'العدم والغياب التام للاحترافية' إذا لم يكن للشخص هوية بصرية متميزة أو أسلوب حياة يميزه في خطوطه وتكويناته.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: كما صرح النقاد 'فلا شيء يعادل العدم والضياع الفني مثل عدم وجود أسلوب أو ملمح خاص بالمبدع'." },
+            { id: 33, level: "direct", type: "tf", question: "الضوء هو العنصر الفيزيائي والجمالي المسؤول عن الكشف عن بنية الكائنات وتفاصيلها الجوهرية المخبأة في الرسم التكويني.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: بدون الضوء وتدرجاته لا نرى شكلاً ولا حجماً ولا تفاصيل، فهو محرك الإدراك البصري الأول." },
+            { id: 34, level: "direct", type: "tf", question: "لكي يبرز المصمم الموضوع الرئيسي في لوحته، يجب أن يجعل مستويات الإضاءة حوله باهتة ومساوية تماماً لباقي اللوحة لمنع التشتت.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: يجب أن يكون الموضوع الرئيسي 'أكثر نصوعاً وتمايزاً بقيم الإضاءة' (Brightness Value) ليحقق السيادة البصرية المطلوبة. التغذية الراجعة: بؤرة السيادة تنجذب دوماً للتباين النوري الأقوى." },
+            
+            // Part 1 continued: True / False (Level 2: 35 to 50)
+            { id: 35, level: "hard", type: "tf", question: "يُنصح المصممون بمراجع تنظيم الظل والنور للوحاتهم بعيون 'نصف مغمضة' لتقليل الإحساس بـ 'كنه اللون' والتركيز على القيم الضوئية الصرفة.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: هذه التقنية البصرية تطمس التفاصيل اللونية والخطوط الفرعية وتبرز 'كتل التوزيع القيمي' (Value Blocks) للظل والنور." },
+            { id: 36, level: "hard", type: "tf", question: "التباين (Contrast) في مستويات الإضاءة غرضه الأساسي هو توحيد ألوان اللوحة وجعلها تبدو مسطحة وباهتة لخدمة التناغم اللوني.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: غرضه تحديد مساحات الغامق والفاتح وإبراز التجسيم وصنع عمق بصري يحدد معالم الأجسام. التغذية الراجعة: التباين هو 'لعبة التضاد' الجمالية لإبراز الأبطال البصريين." },
+            { id: 37, level: "hard", type: "tf", question: "عرفت 'ليندا روبن' عناصر التكوين البصري بأنها 'مفردات المصمم الشكلية الأساسية' مثل الخط والشكل والملمس واللون.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: العناصر التكوينية هي الحروف الأبجدية التي ينسقها ويبني بها المصمم جملاً بصرية معبرة ومفهومة للجمهور." },
+            { id: 38, level: "hard", type: "tf", question: "يرى الأكاديمي 'ديفيد دابنر' أن التكوين البصري الناجح هو مجرد الاهتمام الميكانيكية بالأجزاء الفردية المستقلة التي تشكل التصميم.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: دابنر يرى التكوين كرؤية شاملة متكاملة تعتمد على 'قدر أكبر بكثير من الاهتمام بالأجزاء المنفردة'. التغذية الراجعة: الكل البصري المتناغم أهم وأعمق من مجرد مجموع أجزائه الفردية." },
+            { id: 39, level: "hard", type: "tf", question: "في منظور 'الثلاث نقاط'، يتم قصر وضغط المسافة بين نقاط التلاشي عمداً على خط الأفق لإحداث تشوه (Distortion) ديناميكي دراماتيكي ومثير.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: التقارب والضغط الشديد لنقاط التلاشي يؤدي لانحناءات هندسية حادة تعطي إحساساً بالحركة السريعة والمنظور السينمائي الملحمي." },
+            { id: 40, level: "hard", type: "tf", question: "الأجسام البعيدة جداً في كادر المنظور الجوي تميل دائماً إلى التحول للون 'الأسود الصريح والمشبع' بفعل تجمع الظلال الجوية الخلفية.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: تميل الأجسام البعيدة إلى درجات باهتة وأفتح وأكثر زرقة (Light Cool Tones) وتتلاشى فيها حدة الظلال والتباينات كلياً. التغذية الراجعة: الهواء يشتت الألوان الدافئة والظلال العميقة." },
+            { id: 41, level: "hard", type: "tf", question: "أي مبنى شاهق الارتفاع تتغير صفاته المنظورية والجمالية عند رصده من مسافة أفقية لتشمل تموج الحواف وانخفاض وضوح تفاصيله الهندسية.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: الارتفاع الشاهق والعمودي يعمل فيزيائياً عمل المسافة الأفقية الطويلة في توليد تأثيرات التشتت الجوي والغبش البصري." },
+            { id: 42, level: "hard", type: "tf", question: "الصور الفوتوغرافية التي مثلت نهايتها 'نهاية عصر التصوير التقليدي اليدوي والتحميض الكيميائي' كانت حافزاً للمصممين لإضافة المعالجات الرقمية الخاصة.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: التحول التكنولوجي الرقمي فتح باب الإبداع اللانهائي للدمج والمعالجة الرقمية دون حواجز تحميض الغرف المظلمة." },
+            { id: 43, level: "hard", type: "tf", question: "مبدأ 'السيادة' (Dominance) في التكوين الإنشائي يعني أن جميع عناصر العمل الفني تتنافس لجذب انتباه عين المشاهد بنفس القوة والدرجة.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: يعني منح عنصر أساسي واحد (الموضوع البطل) قدر من التمايز والنصوع أو الحجم ليقود مسار الرؤية الباقية كقائد للتصميم. التغذية الراجعة: غياب السيادة يولد فوضى تشتت الإدراك البصري." },
+            { id: 44, level: "hard", type: "tf", question: "يُمكن للخط ثنائي الأبعاد أن يعطي مظهراً مجسماً وكتلياً واضحاً للأشياء والمنحنيات من خلال تطبيق تقنية 'التهشير المتقاطع' بكثافات مختلفة.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: تقارب الخطوط وتكرارها وتعاكسها المتقاطع يحاكي تفاعل الضوء والظل الفيزيائي على المنحنيات مما يصنع التجسيم الوهمي." },
+            { id: 45, level: "hard", type: "tf", question: "صنع تأثيرات 'الخداع البصري' ثلاثية الأبعاد هو الوظيفة الجمالية والفيزيائية الأساسية للمجسمات 'الواقعية' (Realistic Forms).", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: هو الوظيفة الأساسية للمجسمات 'الإيهامية' (Illusory Forms) المصنوعة على الأسطح ثنائية الأبعاد، بينما الواقعية لها تجسيم حقيقي في الفراغ. التغذية الراجعة: الإيهام مبني على تقنيات محاكاة الظل والمنظور." },
+            { id: 46, level: "hard", type: "tf", question: "خط الأفق (Horizon Line) هو المرجع الهندسي البصري الذي تلتقي فيه نقاط التلاشي دائماً وأبداً في كل أنواع المنظور دون أي استثناء.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: في منظور 'الثلاث نقاط' المخصص للارتفاعات والعمق الرأسي الشديد، تقع النقطة الثالثة بعيداً جداً عن خط الأفق (أعلى بكثير أو أسفل بكثير). التغذية الراجعة: الأفق مرجع للعين، والمنظور الثلاثي يكسر هذا المرجع." },
+            { id: 47, level: "hard", type: "tf", question: "استخدام 'الصورة المرجعية' كأداة للإلهام البصري هو نفسه عملية 'النسخ والشف التام' لتفاصيل تلك الصورة في لوحة المصمم الجديدة.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: النسخ والشف يعيق الابتكار ويجلب الجمود، بينما الإلهام المرجعي هو فهم تفاعل الضوء البصري والتشريح لتحسين الرسم الخاص. التغذية الراجعة: النسخ قيد يعيق الشخصية الإبداعية الفنية." },
+            { id: 48, level: "hard", type: "tf", question: "الخطوط الهندسية العميقة والمنحسرة في منظور 'النقطة الواحدة' تلتقي جميعها في نقطة تلاشٍ واحدة مركزية تسمى بالرمز العالمي (VP).", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: (VP) هي اختصار للمصطلح العلمي والهندسي (Vanishing Point) وهي بؤرة انحسار الرؤية البشرية." },
+            { id: 49, level: "hard", type: "tf", question: "مفهوم 'الفراغ الحقيقي' في التصميم هو المساحة والمنطقة الفيزيائية التي يحتلها التكوين بصورة فعلية ملموسة (مثل أبعاد الكانفاس أو ورقة الرسم المتاحة).", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "أ) صحيحة.", explanation: "التغذية الراجعة: هو الحيز المادي الثابت للعمل الفني قبل البدء في وضع أي خطوط أو توزيع عناصر التصميم البصرية." },
+            { id: 50, level: "hard", type: "tf", question: "من المستحيل علمياً وفنياً أن يوجد أسلوب تصميمي خاص يدمج بين مبدأ 'التجريد' (Abstraction) و'الواقعية' (Realism) في كادر وعمل فني واحد.", options: ["أ) صحيحة.", "ب) خاطئة."], answer: "ب) خاطئة.", explanation: "التصويب: الأسلوب الفني المعاصر يتميز بالمرونة الفائقة والقدرة على دمج أقصى درجات التجريد الفراغي مع الواقعية المفرطة لبعض العناصر في تكوين واحد. التغذية الراجعة: دمج المتناقضات يصنع هوية الفنان البصرية." },
 
-    // --- الجزء الثاني: 50 سؤال اختيار من متعدد (MCQ) ---
-    { id: 51, type: "mcq", question: "العالم الذي وصف عناصر التكوين بقطع اللغز؟", options: ["كلارك توم", "جيوفري كاتر", "ليندا روبن", "لويس فيتشنر"], answer: "جيوفري كاتر" },
-    { id: 52, type: "mcq", question: "أي تصميم يُستخدم لفن عملي لشرح منتج؟", options: ["Photos", "CGI", "Illustrations", "Style"], answer: "Illustrations" },
-    { id: 53, type: "mcq", question: "تقنية لخلق شخصية حقيقية غير موجودة؟", options: ["تصوير", "رسم يدوي", "CGI", "منظور جوي"], answer: "CGI" },
-    { id: 54, type: "mcq", question: "المفتاح الأول لفهم اللغة البصرية؟", options: ["لون", "عناصر التكوين", "توقيع", "ورق"], answer: "عناصر التكوين" },
-    { id: 55, type: "mcq", question: "النقطة في الفراغ البصري تمثل؟", options: ["خط", "موقعاً بدون مساحة", "كتلة", "ظلاً"], answer: "موقعاً بدون مساحة" },
-    { id: 56, type: "mcq", question: "استخدام قطرات المياه كعنصر تكوين؟", options: ["خطوط", "نقطة طبيعية", "منظور حجمي", "فراغ نفسي"], answer: "نقطة طبيعية" },
-    { id: 57, type: "mcq", question: "وظيفة الخط لجذب النظر؟", options: ["جمال", "توجيه", "تحديد", "تدرج"], answer: "توجيه" },
-    { id: 58, type: "mcq", question: "الشكل المسطح يتميز بـ؟", options: ["طول وعرض وعمق", "تقاطع خطوط ثنائية", "وزن مادي", "غير مرئي"], answer: "تقاطع خطوط ثنائية" },
-    { id: 59, type: "mcq", question: "المكعب والكرة أمثلة على؟", options: ["أشكال أساسية", "مجسمات أساسية", "منظور جوي", "فراغ سلبي"], answer: "مجسمات أساسية" },
-    { id: 60, type: "mcq", question: "سكة حديد تلتقي بالأفق؟", options: ["نقطتين", "نقطة واحدة", "ثلاث نقاط", "منظور حجمي"], answer: "نقطة واحدة" },
-    { id: 61, type: "mcq", question: "ظاهرة تصغير الأشياء بالبعد؟", options: ["تقصير", "تضاؤل", "تباين", "سيادة"], answer: "تضاؤل" },
-    { id: 62, type: "mcq", question: "في منظور النقطتين، الخطوط الموازية للصفحة؟", options: ["أفقية", "رأسية", "مائلة", "لا يوجد"], answer: "رأسية" },
-    { id: 63, type: "mcq", question: "التشويه يحدث بسبب؟", options: ["بعد النقاط", "قصر النقاط", "ألوان", "دوائر"], answer: "قصر النقاط" },
-    { id: 64, type: "mcq", question: "منظور عين النملة؟", options: ["Downshot", "Upshot", "One-point", "Atmospheric"], answer: "Upshot" },
-    { id: 65, type: "mcq", question: "إظهار جسر ضبابي؟", options: ["تغيير الحجم", "تلاشي اللون والتباين", "تقليل الخطوط", "طول الأفق"], answer: "تلاشي اللون والتباين" },
-    { id: 66, type: "mcq", question: "المحرك الذي يقود المشاهد؟", options: ["نقطة ساكنة", "الحركة", "فراغ سلبي", "ظل قوي"], answer: "الحركة" },
-    { id: 67, type: "mcq", question: "المساحات البيضاء هي؟", options: ["فراغ إيجابي", "فراغ سلبي", "فيزيائي", "حقيقي"], answer: "فراغ سلبي" },
-    { id: 68, type: "mcq", question: "ملصق لينكولن ونوع الفراغ؟", options: ["تصويري", "نفسي", "حقيقي", "جوي"], answer: "نفسي" },
-    { id: 69, type: "mcq", question: "أسلوب الفنان يشبه؟", options: ["قلم", "توقيع", "ثمن", "إطار"], answer: "توقيع" },
-    { id: 70, type: "mcq", question: "السيادة تتحقق بـ؟", options: ["نصوع شديد", "حجم صغير", "زاوية", "مطابقة اللون"], answer: "نصوع شديد" },
-    { id: 71, type: "mcq", question: "العالم الذي عرف التكوين كأجزاء داخل كل متسق؟", options: ["لوميس", "توم", "دابنر", "روبن"], answer: "توم" },
-    { id: 72, type: "mcq", question: "مصطلح Convergence في المنظور؟", options: ["تباعد", "التقاء", "تغير لون", "ثبات حجم"], answer: "التقاء" },
-    { id: 73, type: "mcq", question: "ليس من الأخطاء في الصور المرجعية؟", options: ["نسخ", "تأثر باللون", "محفز للابتكار", "أولوية الصورة"], answer: "محفز للابتكار" },
-    { id: 74, type: "mcq", question: "المنظور الحجمي يجعلنا ندرك؟", options: ["الصغير أبعد", "البارد قريب", "الرأسي مائل", "الفراغ غير موجود"], answer: "الصغير أبعد" },
-    { id: 75, type: "mcq", question: "ناطحة سحاب من الأعلى؟", options: ["One-point", "Three-point Down", "Atmospheric", "Two-point"], answer: "Three-point Down" },
-    { id: 76, type: "mcq", question: "الضوء يظهر تجسيماً عند؟", options: ["الطبيعة", "الأبيض فقط", "غياب الظل", "رسم في الظلام"], answer: "الطبيعة" },
-    { id: 77, type: "mcq", question: "التباين في الإضاءة يساعد في؟", options: ["إخفاء تفاصيل", "إبراز الأجسام", "تقليل العمق", "تسطيح"], answer: "إبراز الأجسام" },
-    { id: 78, type: "mcq", question: "الفراغ الذي يخضع للحكم العقلي؟", options: ["حقيقي", "فيزيائي", "نفسي", "تصويري"], answer: "فيزيائي" },
-    { id: 79, type: "mcq", question: "فيتشنر عرف التكوين بإطار يشمل؟", options: ["تعبير وتنظيم", "رسم رقمي", "صور", "نقاط تلاشي"], answer: "تعبير وتنظيم" },
-    { id: 80, type: "mcq", question: "الخطوط الموازية للأفق في منظور النقطة الواحدة؟", options: ["تلتقي", "تظل أفقية", "عمودية", "تختفي"], answer: "تظل أفقية" },
-    { id: 81, type: "mcq", question: "رينوار وبيكاسو أمثلة على؟", options: ["أسلوب", "كاميرا", "ورق", "سرعة"], answer: "أسلوب" },
-    { id: 82, type: "mcq", question: "السيادة تمنح الأولوية لـ؟", options: ["هروب المشاهد", "عدم الاختفاء", "تغطية التوقيع", "تحول السطح"], answer: "عدم الاختفاء" },
-    { id: 83, type: "mcq", question: "متغيرات تخلق إحساساً بالحركة؟", options: ["خط وشكل وملمس", "نقطة تلاشي", "مقاس", "سعر"], answer: "خط وشكل وملمس" },
-    { id: 84, type: "mcq", question: "تصوير كوبري بضباب لبيان المنظور الجوي؟", options: ["حدة", "تلاشي", "لون أحمر", "نقطتي تلاشي"], answer: "تلاشي" },
-    { id: 85, type: "mcq", question: "ثبات الحجم يستخدم في؟", options: ["نقطة واحدة", "حجمي", "جوي", "تقصير"], answer: "حجمي" },
-    { id: 86, type: "mcq", question: "الخط الذي يصور رمزاً؟", options: ["نقطة", "خط", "فراغ", "لون"], answer: "خط" },
-    { id: 87, type: "mcq", question: "المجسمات الواقعية توجد في؟", options: ["ثنائي", "ثلاثي الأبعاد", "خيال", "تحت المجهر"], answer: "ثلاثي الأبعاد" },
-    { id: 88, type: "mcq", question: "التقصير يظهر في؟", options: ["قصص مصورة", "طبيعة صامتة", "خرائط", "نصوص"], answer: "قصص مصورة" },
-    { id: 89, type: "mcq", question: "العدم في الأسلوب؟", options: ["أبيض", "غياب الهوية", "لوحة فارغة", "رسم في الفراغ"], answer: "غياب الهوية" },
-    { id: 90, type: "mcq", question: "عيون نصف مقفلة؟", options: ["راحة", "تنظيم قيمي", "منظور نقطتين", "إخفاء أخطاء"], answer: "تنظيم قيمي" },
-    { id: 91, type: "mcq", question: "ملصق نبراسكا والفراغ؟", options: ["أسماء", "تعزيز المعنى", "توفير حبر", "إخفاء"], answer: "تعزيز المعنى" },
-    { id: 92, type: "mcq", question: "عنصر وليس مبدأ؟", options: ["توازن", "خط", "تركيز", "وحدة"], answer: "خط" },
-    { id: 93, type: "mcq", question: "نقطة التلاشي اختصاراً؟", options: ["LP", "VP", "CP", "SP"], answer: "VP" },
-    { id: 94, type: "mcq", question: "CGI تسمح بـ؟", options: ["لمس", "رؤية من أي زاوية", "تغيير ألوان", "عدم رؤية"], answer: "رؤية من أي زاوية" },
-    { id: 95, type: "mcq", question: "الظلال في المنظور الجوي؟", options: ["سوداء", "فاتحة وباهتة", "حمراء", "حادة"], answer: "فاتحة وباهتة" },
-    { id: 96, type: "mcq", question: "التنغيم الرمادي ينتج عن؟", options: ["ممحاة", "كثافة الخطوط", "نقطة", "منظور"], answer: "كثافة الخطوط" },
-    { id: 97, type: "mcq", question: "المداخل المكانية تعريف عند؟", options: ["توم", "كاتر", "دابنر", "روبن"], answer: "كاتر" },
-    { id: 98, type: "mcq", question: "الأشكال مناطق محددة بـ؟", options: ["فسفوري", "تقاطع خطوط", "حركة", "ظلام"], answer: "تقاطع خطوط" },
-    { id: 99, type: "mcq", question: "الفراغ التصويري يخلق لـ؟", options: ["طباعة", "خداع بالعمق", "توقيع", "ألوان"], answer: "خداع بالعمق" },
-    { id: 100, type: "mcq", question: "الهدف النهائي للتكوين؟", options: ["أسماء فنانين", "عمل متكامل مقنع", "رياضيات", "أدوات غالية"], answer: "عمل متكامل مقنع" }
-];
+            // Part 2: Multiple Choice Questions (51 to 100)
+            // Level 2 Continued & Level 3 (Expert)
+            { id: 51, level: "hard", type: "mcq", question: "إذا شبهنا التصميم بـ 'لغز بصري غامض'، فمن هو العالم الذي وصف عناصر التكوين بأنها 'قطع اللغز التي يجب ترتيبها بذكاء مسبق'؟", options: ["أ) كلارك توم", "ب) جيوفري كاتر", "ج) ليندا روبن", "د) لويس فيتشنر"], answer: "ب) جيوفري كاتر", explanation: "التغذية الراجعة: كاتر ربط التخطيط الهندسي المسبق وترتيب العناصر بفكرة تجميع قطع الأحجية البصرية للوصول لوحدة العمل المتكاملة." },
+            { id: 52, level: "hard", type: "mcq", question: "أي نوع من الأساليب والتصميمات البصرية يُستخدم كـ 'فن عملي اتصالى' غرضه شرح فكرة أو منتج معين أو تزيين رواية كتابية؟", options: ["أ) Photographs (الصور)", "ب) CGI (الرسوم الرقمية ثلاثية الأبعاد)", "ج) Illustrations (الرسوم التوضيحية)", "د) Artistic Style (الأساليب الذاتية)"], answer: "ج) Illustrations (الرسوم التوضيحية)", explanation: "التغذية الراجعة: الرسوم التوضيحية هي الجسر البصري الاتصالي المباشر لشرح الأفكار المعقدة وتيسير فهمها للعامة." },
+            { id: 53, level: "hard", type: "mcq", question: "مصمم جرافيكي يريد صنع كائن خرافي لفيلم خيالي يبدو واقعياً جداً ويصعب تفريقه عن الواقع المادي، أي تقنية وبنية تصميمية سيختار لتنفيذه؟", options: ["أ) التصوير الفوتوغرافي التقليدي", "ب) الرسم التوضيحي اليدوي الكلاسيكي", "ج) الصور المولدة بالكمبيوتر (CGI)", "د) المنظور الجوي المباشر"], answer: "ج) الصور المولدة بالكمبيوتر (CGI)", explanation: "التغذية الراجعة: CGI تتيح للمصمم محاكاة الضوء والظل والملمس والكتلة رياضياً لبناء كائنات افتراضية نابضة بالحياة تماماً." },
+            { id: 54, level: "hard", type: "mcq", question: "ما هو 'المفتاح الإدراكي الأول' والمدخل العلمي الواجب رصده لفهم وتحليل اللغة البصرية والاتصال الإعلاني؟", options: ["أ) الألوان الباردة والظلال الخفيفة", "ب) عناصر التكوين البصرية المهيمنة", "ج) توقيع الفنان وسعره في أسفل العمل", "د) نوع وجودة الورق المستخدم في الطباعة"], answer: "ب) عناصر التكوين البصرية المهيمنة", explanation: "التغذية الراجعة: هذه العناصر (الخط، الشكل، الكتل، الفراغ) هي الأبجدية اللغوية للتواصل البصري مع الإدراك الإنساني." },
+            { id: 55, level: "hard", type: "mcq", question: "النقطة في قواعد اللغة والكتابة تمثل 'توقفاً زمنياً ومفهوماً محدداً'، فماذا تمثل النقطة في الفراغ البصري والتكوين الفني? ", options: ["أ) خطاً هندسياً منحنياً طويل الحواف", "ب) موقعاً أو مكاناً هندسياً مجرداً بدون مساحة أو أبعاد فيزيائية", "ج) كتلة خشبية أو مادية لها حجم ملموس", "د) ظلاً باهتاً يحيط بالأشكال"], answer: "ب) موقعاً أو مكاناً هندسياً مجرداً بدون مساحة أو أبعاد فيزيائية", explanation: "التغذية الراجعة: النقطة في الإدراك البصري هي إحداثي موقعي يجذب العين دون أن يشغل مساحة هندسية فعلية." },
+            { id: 56, level: "hard", type: "mcq", question: "عندما يقوم فنان أو مصور برصد 'حبات الرمل المتناثرة' أو 'قطرات الندى على الأوراق' كعناصر تكوين فني، هو هنا يستغل علمياً مفهوم:", options: ["أ) الخطوط الرأسية المتوازية", "ب) النقطة كعنصر طبيعي تكويني مستقل", "ج) المنظور الحجمي الصعب", "د) الفراغ النفسي والروحي للقصة"], answer: "ب) النقطة كعنصر طبيعي تكويني مستقل", explanation: "التغذية الراجعة: الطبيعة غنية جداً بتمثيلات النقطة المجهرية التي توظف كعناصر جذب إيقاعي في التكوين البصري المحترف." },
+            { id: 57, level: "hard", type: "mcq", question: "أي من وظائف الخط الجمالية التالية تُستخدم بصورة مباشرة لـ 'جذب انتباه البصر وقيادة رحلة العين' بذكاء داخل تكوين اللوحة؟", options: ["أ) التعبير عن الجمال والعمق الذاتي", "ب) التوجيه وصنع المسارات (Direction)", "ج) تحديد مناطق الفراغ السلبي فقط", "د) التدرج الرمادي المسطح للخلفية"], answer: "ب) التوجيه وصنع المسارات (Direction)", explanation: "التغذية الراجعة: الخط يعمل كالسهم الخفي الذي يقود انتباه المشاهد من نقطة إلى أخرى لتأدية تسلسل درامي مرسوم." },
+            { id: 58, level: "hard", type: "mcq", question: "يتميز 'الشكل المسطح' (Shape) في فلسفة التصميم والفنون ثنائية الأبعاد بأنه:", options: ["أ) كائن فيزيائي له طول وعرض وعمق مادي حقيقي", "ب) ينشأ من اتصال وتقاطع الخطوط ليحصر منطقة فراغية واضحة المعالم", "ج) له وزن ثقيل وملمس خشن يمكن تحسسه بالأصابع", "د) لا يمكن إدراكها أو رؤيتها بالعين في ظروف الإضاءة العادية"], answer: "ب) ينشأ من اتصال وتقاطع الخطوط ليحصر منطقة فراغية واضحة المعالم", explanation: "التغذية الراجعة: الشكل (Shape) هو منطقة محصورة مسطحة ثنائية الأبعاد تتشكل بمجرد إغلاق مسار الخطوط." },
+            { id: 59, level: "hard", type: "mcq", question: "المكعب والكرة والمنشور والأسطوانة في لغة التصميم ثلاثي الأبعاد والكتل المعمارية هي أمثلة كلاسيكية على:", options: ["أ) الأشكال الأساسية المسطحة (Basic Shapes)", "ب) المجسمات والكتل الأساسية (Basic Forms)", "ج) تقنيات المنظور الجوي المعاصر", "د) الفراغ السلبي الخادع"], answer: "ب) المجسمات والكتل الأساسية (Basic Forms)", explanation: "التغذية الراجعة: المجسمات تشتق مباشرة من الأشكال وتكتسب عمقاً وحجماً مجسماً في الفراغ الوهمي أو الحقيقي." },
+            { id: 60, level: "hard", type: "mcq", question: "(فخ فني) إذا كنت ترسم طريق سكة حديد يمتد بشكل مواجه لعينك تماماً حتى يلتقي عند الأفق، فأنت تطبق بدقة منظور:", options: ["أ) النقطتين (Two-point)", "ب) النقطة الواحدة (One-point / Parallel)", "ج) الثلاث نقاط (Three-point)", "د) المنظور الحجمي الصرف بلا أفق"], answer: "ب) النقطة الواحدة (One-point / Parallel)", explanation: "التغذية الراجعة: سكك الحديد الممتدة للأمام بوضع مواجه مباشر هي المثال الهندسي الكلاسيكي لمنظور النقطة الواحدة." },
+            { id: 61, level: "hard", type: "mcq", question: "ما هي الظاهرة البصرية الطبيعية التي تجعل كتل الأشجار وأعمدة الإنارة تبدو أصغر تدريجياً كلما ابتعدت مسافتها عن عين الراصد؟", options: ["أ) التقصير الجمالي (Foreshortening)", "ب) التضاؤل والتصاغر التدريجي (Diminution)", "ج) التباين والشد القيمي (Contrast)", "د) السيادة والمركزية البصرية"], answer: "ب) التضاؤل والتصاغر التدريجي (Diminution)", explanation: "التغذية الراجعة: التضاؤل هو التعبير الهندسي الدقيق لقانون المسافة والعمق في الإدراك البصري البشري الطبيعي." },
+            { id: 62, level: "hard", type: "mcq", question: "في منظور 'النقطتين'، أي من الخطوط الهندسية التالية تظل موازية ومطابقة ومستقيمة تماماً مع حدود صفحة الرسم الرأسية؟", options: ["أ) الخطوط الأفقية فقط", "ب) الخطوط الرأسية والعمودية فقط (Verticals)", "ج) الخطوط المائلة الذاهبة لنقاط التلاشي", "د) لا توجد خطوط موازية على الإطلاق في منظور النقطتين"], answer: "ب) الخطوط الرأسية والعمودية فقط (Verticals)", explanation: "التغذية الراجعة: في منظور النقطتين، تنحرف كل الخطوط العرضية لنقاط التلاشي، بينما تحافظ الخطوط الرأسية الشاقولية على استقامتها." },
+            { id: 63, level: "hard", type: "mcq", question: "التشوه والانضغاط الهندسي غير الطبيعي (Distortion) في رسم المكعبات والأبنية يحدث غالباً نتيجة لخطأ تصميمي هو:", options: ["أ) المبالغة في زيادة المسافة بين نقاط التلاشي خارج الكادر", "ب) التقريب المفرط وقصر المسافة بين نقاط التلاشي داخل مجال الرؤية البصرية", "ج) دمج الكثير من درجات الألوان المتكاملة والدافئة", "د) رسم أشكال دائرية متداخلة مع المربعات"], answer: "ب) التقريب المفرط وقصر المسافة بين نقاط التلاشي داخل مجال الرؤية البصرية", explanation: "التغذية الراجعة: ضغط نقاط التلاشي لتقع قريبة جداً داخل صفحة الرسم يضغط زاوية الرؤية ويولد تشوهاً بصرياً شديداً للأشكال." },
+            { id: 64, level: "hard", type: "mcq", question: "منظور 'عين النملة' أو اللقطة الموجهة رأسياً من الأسفل إلى الأعلى لإبراز العظمة والشموخ تسمى تقنياً بمصطلح:", options: ["أ) Downshot", "ب) Upshot", "ج) Parallel Point", "د) Atmospheric Perspective"], answer: "ب) Upshot", explanation: "التغذية الراجعة: الـ (Upshot) تعني توجيه زاوية النظر وعين الكاميرا للأعلى لضغط البعد الرأسي وصنع إحساس بالقوة والمهابة." },
+            { id: 65, level: "hard", type: "mcq", question: "لكي يظهر 'جسر قديم' في خلفية لوحتك الطبيعية باهتاً وضبابياً وبألوان باردة كأنه يقع في مسافة بعيدة، يجب عليك عمداً تقليل:", options: ["أ) الحجم الكلي للجسر فقط دون تغيير خطوطه", "ب) التباين القيمي والتشبع اللوني (Value & Color Saturation)", "ج) عدد الخطوط والتقاطعات المستعملة في رسم أعمدته", "د) طول وعرض خط الأفق المرجعي الخاص باللوحة"], answer: "ب) التباين القيمي والتشبع اللوني (Value & Color Saturation)", explanation: "التغذية الراجعة: تقليل التباين القيمي وتبريد الألوان هو جوهر تطبيق قانون المنظور الجوي لمحاكاة الغلاف الجوي البعيد." },
+            { id: 66, level: "hard", type: "mcq", question: "أي من عناصر التصميم التالية يُعتبر بمثابة 'المحرك والدينامو' الذي يقود بصر المشاهد بذكاء عبر أجزاء اللوحة لاستيعاب الرسالة البصرية كاملة؟", options: ["أ) النقطة الساكنة المحايدة في أقصى الكادر", "ب) الحركة ومسارات البصر (Movement)", "ج) الفراغ السلبي الواسع جداً بلا أشكال", "د) الظلال القاتمة شديدة العتمة"], answer: "ب) الحركة ومسارات البصر (Movement)", explanation: "التغذية الراجعة: الحركة الإيحائية تخلق إيقاعاً وزمناً افتراضياً داخل الصورة الثابتة يوجه تتابع تفاعل المشاهد مع عناصر اللوحة." },
+            { id: 67, level: "hard", type: "mcq", question: "الفراغ المحيط بالأشكال النشطة والذي يطلق عليه غرف الأخبار والمصممون المحترفون بمصطلح 'المساحات البيضاء المريحة للإدراك' هو:", options: ["أ) الفراغ الإيجابي (Positive Space)", "ب) الفراغ السلبي (Negative Space)", "ج) الفراغ الفيزيائي المعماري الملموس", "د) الفراغ الحقيقي لأبعاد الكانفاس الخارجية"], answer: "ب) الفراغ السلبي (Negative Space)", explanation: "التغذية الراجعة: الفراغ السلبي يمثل الخلفية الصامتة التي تمنح الأشكال الإيجابية قدرة على التنفس والظهور والوضوح." },
+            
+            // Level 3: Expert Questions (68 to 100)
+            { id: 68, level: "expert", type: "mcq", question: "(موقف) في ملصق فيلم 'Lincoln' الشهير، ما هو نوع الفراغ المصمم بذكاء مفرط لتصوير حالة العزلة العميقة، التأمل، والمسؤولية التاريخية للشخصية؟", options: ["أ) الفراغ التصويري الوهمي والمنظور الهندسي", "ب) الفراغ النفسي والدرامي المستمد من توزيع الكتل الرصينة", "ج) الفراغ الفيزيائي الحقيقي للوحة الإعلانية", "د) المنظور الجوي والضباب المحيط بالوجه"], answer: "ب) الفراغ النفسي والدرامي المستمد من توزيع الكتل الرصينة", explanation: "التغذية الراجعة: توظيف الفراغ النفسي الصامت حول البطل يعزز المشاعر الدرامية ويخلق اتصالاً شعورياً عميقاً دون الحاجة لكلمات." },
+            { id: 69, level: "expert", type: "mcq", question: "الأسلوب الفني المتميز للفنان المحترف يشبه علمياً وفلسفياً '........' التي تمنح أعماله حماية وتوقيعاً فريداً يسهل تمييزه من قبل الجمهور العادي والنقاد:", options: ["أ) نوع القلم الفاخر المستخدم في الخطوط", "ب) البصمة الفردية أو التوقيع البصري (Signature Style)", "ج) السعر والقيمة المالية الباهظة للعمل الفني", "د) الإطار الخشبي المحيط باللوحة في المعرض"], answer: "ب) البصمة الفردية أو التوقيع البصري (Signature Style)", explanation: "التغذية الراجعة: الأسلوب هو تبلور الهوية الفكرية والبصرية للفنان عبر السنين، مما يجعل ضربات فرشته مرئية وخاصة به كبصمة إصبعه." },
+            { id: 70, level: "expert", type: "mcq", question: "لكي نضمن تحقيق مبدأ 'السيادة والتركيز' (Dominance & Focal Point) بأفضل كفاءة في تكوين اللوحة، يجب منح الموضوع البطل الرئيسي:", options: ["أ) نصوعاً ضوئياً متبايناً (High Brightness Contrast) مقارنة بالخلفية المجاورة", "ب) حجماً متناهي الصغر لدفعه لأقصى المسافات العميقة", "ج) موضعاً هامشياً ميتاً في زاوية الكادر الصعبة", "د) درجات ألوان مطابقة ومدمجة كلياً مع ألوان الخلفية"], answer: "أ) نصوعاً ضوئياً متبايناً (High Brightness Contrast) مقارنة بالخلفية المجاورة", explanation: "التغذية الراجعة: عين الإنسان تنجذب فسيولوجياً وبصرياً وبشكل لا إرادي للبقع الأكثر تبايناً ونوراً وإشراقاً في مجال الرؤية." },
+            { id: 71, level: "expert", type: "mcq", question: "أي من الأكاديميين والمنظرين التاليين عرف التكوين الإنشائي البصري بأنه 'عملية تجميع أجزاء فردية مختلفة داخل كل متسق ومتناغم وجميل'؟", options: ["أ) أندرو لوميس", "ب) كلارك توم", "ج) ديفيد دابنر", "د) ليندا روبن"], answer: "ب) كلارك توم", explanation: "التغذية الراجعة: توم ركز في فلسفته وتدريسه الفني على مفهوم 'التناسق والتناغم المشترك' الذي يحول الأجزاء المشتتة لكيان جمالي واحد." },
+            { id: 72, level: "expert", type: "mcq", question: "المصطلح الهندسي والمنظوري العالمي (Convergence) في تصميمات البيئة والمنظور يشير مباشرة إلى:", options: ["أ) تباعد الخطوط الهندسية وتناثرها خارج خط الأفق", "ب) انحسار والتقاء الخطوط العميقة المتوازية تدريجياً في نقطة تلاشٍ واحدة", "ج) تبدل كنه اللون وتحوله للأحمر عند المسافات الطويلة", "د) ثبات وجمود الحجم الكلي للأجسام ثلاثية الأبعاد"], answer: "ب) انحسار والتقاء الخطوط العميقة المتوازية تدريجياً في نقطة تلاشٍ واحدة", explanation: "التغذية الراجعة: 'الكونفيرجنس' هو محاكاة هندسية حتمية لانحسار خطوط النظر البشرية الممتدة نحو بؤرة البعد اللانهائي." },
+            { id: 73, level: "expert", type: "mcq", question: "(فخ فني دقيق) أي من الممارسات التالية 'لا تُعد' من الأخطاء والعيوب الشائعة التي يقع فيها المصممون والرسامون المبتدئون عند توظيف الصور المرجعية؟", options: ["أ) النسخ والشف والتماثل التام لخطوط الصورة المرجعية", "ب) التنازل والتأثر اللوني المباشر بصبغات وتناغم الصورة المرجعية", "ج) استخدام تفاصيل الصورة المرجعية بحكمة كمحفز بصري للابتكار والفهم الإنشائي", "د) منح الصورة المرجعية الأولوية والهيمنة الكاملة على الفكرة الإبداعية الأصلية"], answer: "ج) استخدام تفاصيل الصورة المرجعية بحكمة كمحفز بصري للابتكار والفهم الإنشائي", explanation: "التغذية الراجعة: استخدام الصور المرجعية كأداة للفهم والتحفيز والابتكار هو الأسلوب الاحترافي المتبع والمنصوح به في أكاديميات الفنون." },
+            { id: 74, level: "expert", type: "mcq", question: "المنظور الحجمي والكتلي (Size Perspective) يساعد المشاهد فسيولوجياً وذهنياً على إدراك وفهم أن:", options: ["أ) الجسم الصغير أبعد بكثير في المسافة من الجسم الكبير المماثل له هندسياً", "ب) الألوان الباردة والمشبعة تكون أقرب بكثير لعين المشاهد من الألوان الدافئة", "ج) الخطوط الرأسية المعمارية يجب أن تكون مائلة ومتعرجة عند الأطراف دائماً", "د) الفراغ السلبي لا قيمة له ويجب حذفه تماماً من اللوحة لتقليص الأبعاد"], answer: "أ) الجسم الصغير أبعد بكثير في المسافة من الجسم الكبير المماثل له هندسياً", explanation: "التغذية الراجعة: العقل البشري يترجم صغر الحجم على السطح المسطح ثنائي الأبعاد كإحداثي مسافة عميقة واقع في البعد الثالث." },
+            { id: 75, level: "expert", type: "mcq", question: "(موقف معقد) فنان يود رسم لقطة دراماتيكية لناطحة سحاب عملاقة من الطابق العلوي لتبدو القاعدة صغيرة جداً والقمة مهيبة، أي منظور يجب عليه تطبيقه هندسياً؟", options: ["أ) منظور النقطة الواحدة الكلاسيكي (One-point)", "ب) منظور الثلاث نقاط الرأسي والعميق (Three-point / Downshot)", "ج) المنظور الجوي واللوني فقط بلا نقاط تلاشٍ", "د) منظور النقطتين الجانبي المعتاد للأبنية الصغيرة"], answer: "ب) منظور الثلاث نقاط الرأسي والعميق (Three-point / Downshot)", explanation: "التغذية الراجعة: اللقطات الرأسية الشاهقة من الأعلى لأسفل تتطلب وجود نقطة تلاشٍ ثالثة سفلية للتحكم في قانون التصاغر العمودي الحاد." },
+            { id: 76, level: "expert", type: "mcq", question: "التمثيل البصري للضوء والظل يظهر بصورة 'أكثر واقعية وتجسيماً وقدرة على إقناع المشاهد' عندما يعتمد المصمم أساساً على:", options: ["أ) دراسة ومحاكاة تفاعل العناصر في بيئتها الطبيعية والواقعية المباشرة", "ب) استخدام اللون الأبيض الصافي لتلوين كافة مناطق الضوء واللمعان", "ج) إلغاء وتجنب رسم الظلال تماماً للحفاظ على بهاء ونقاء الألوان", "د) الرسم في الظلام الدامس لزيادة مستويات التخيل الحركي للفرشاة"], answer: "أ) دراسة ومحاكاة تفاعل العناصر في بيئتها الطبيعية والواقعية المباشرة", explanation: "التغذية الراجعة: الطبيعة الفيزيائية الحرة هي المدرسة البصرية الكبرى والمعلم الأول لفهم سلوك وتفاعل وانعكاس أشعة الضوء ومستويات الظل." },
+            { id: 77, level: "expert", type: "mcq", question: "تطبيق التباين المتوازن (Value Contrast) في الإضاءة والظلال يساعد بصورة رئيسية في:", options: ["أ) إخفاء تفاصيل الموضوع وطمس حدوده وجعله غامضاً ومشتتاً للعين", "ب) إبراز وتحديد الأجسام والكتل وزيادة وضوحها وعميقها البصري للمشاهد", "ج) تقليل عمق المنظور الجوي وجعل تفاصيل الخلفية حادة كالأمام تماماً", "د) جعل اللوحة مسطحة وجافة ومطابقة لنمطية الرسم ثنائي الأبعاد الكارتوني"], answer: "ب) إبراز وتحديد الأجسام والكتل وزيادة وضوحها وعميقها البصري للمشاهد", explanation: "التغذية الراجعة: التباين القوي بين النور والظل يبرز 'الكنه البصري' للكتل، ويمنح الأشكال المسطحة إيحاء رائعاً بالتجسيم والتأثير الفراغي." },
+            { id: 78, level: "expert", type: "mcq", question: "ما هو الفراغ التكويني والإنشائي الذي يربط بين المتطلبات الجمالية الفنية والوظيفة الاتصالية العملية ويخضع كلياً لـ 'الحكم العقلي' للمصمم؟", options: ["أ) الفراغ الحقيقي لأبعاد الكانفاس الثابتة", "ب) الفراغ الفيزيائي أو الطبيعي المخطط هندسياً (Physical Space)", "ج) الفراغ النفسي والدرامي العفوي", "د) الفراغ التصويري والمنظور الخيالي الوهمي"], answer: "ب) الفراغ الفيزيائي أو الطبيعي المخطط هندسياً (Physical Space)", explanation: "التغذية الراجعة: الحكم العقلي للمصمم ضروري في الفراغ الفيزيائي لتحقيق التوازن الدقيق بين متطلبات الوظيفة الاتصالية والجمال الشكلي." },
+            { id: 79, level: "expert", type: "mcq", question: "أي من الفلاسفة والنقاد المعاصرين عرف التكوين البصري بأنه 'الإطار الشامل الذي يشمل كل التعبير الفني والتنظيم الجمالي للعمل بأكمله'؟", options: ["أ) أندرو لوميس", "ب) كلارك توم", "ج) ديفيد دابنر", "د) لويس فيتشنر"], answer: "د) لويس فيتشنر", explanation: "التغذية الراجعة: التكوين عند فيتشنر يمثل 'المظلة الفكرية والجمالية الكبرى' التي توحد كل الأفكار والتقنيات وتصنع معالم العمل الفني المنسق." },
+            { id: 80, level: "expert", type: "mcq", question: "(فخ رياضي منظوري) في منظور النقطة الواحدة الكلاسيكي، ماذا يحدث للخطوط الأفقية التي تقع موازية تماماً لخط الأفق؟", options: ["أ) تنحرف وتلتقي في نقطة التلاشي المركزية (VP) عند نهاية الأفق", "ب) تظل مستقيمة وأفقية وموازية تماماً للحدود العلوية والسفلية لكادر الرسم", "ج) تتحول لخطوط عمودية مائلة بزاوية قائمة لكسر النمطية البصرية", "د) تختفي وتتلاشى تماماً داخل فراغ اللوحة بسبب التشتت النظري"], answer: "ب) تظل مستقيمة وأفقية وموازية تماماً للحدود العلوية والسفلية لكادر الرسم", explanation: "التغذية الراجعة: المواجهة المباشرة لكادر منظور النقطة الواحدة تفرض بقاء الخطوط العرضية والارتفاعية موازية لحدود اللوحة دون انحراف بؤري." },
+            { id: 81, level: "expert", type: "mcq", question: "تضمين كبار الفنانين العالميين مثل 'رينوار' و'بيكاسو' في مراجع النقد الفني يهدف أساساً لضرب أمثلة ملموسة على اختلاف وتنوع وصنع:", options: ["أ) الأسلوب البصري والهوية الفنية المتميزة (Artistic Style)", "ب) جودة الألوان والفرش المستخدمة في العصور الكلاسيكية", "ج) أبعاد اللوحات الخشبية وأسعار بيعها في صالات المزادات العالمية", "د) سرعة إنجاز اللوحة وعدد الساعات المخصصة للرسم اليدوي"], answer: "أ) الأسلوب البصري والهوية الفنية المتميزة (Artistic Style)", explanation: "التغذية الراجعة: لكل فنان عظيم بصمة شخصية وأسلوب خاص (تأثيري عند رينوار، وتكعيبي هندسي عند بيكاسو) يسهل التعرف عليه فوراً." },
+            { id: 82, level: "expert", type: "mcq", question: "مبدأ 'السيادة والمركزية' يمنح الموضوع الرئيسي الأولوية الإدراكية التامة في الكادر لكي:", options: ["أ) ينفر منه المشاهد ويسارع لنقل بصره بعيداً عنه خارج كادر العمل", "ب) لا يختفي أو يضيع بصرياً وسط زحام العناصر الفرعية والتفاصيل المشتتة", "ج) يتطابق تماماً مع الألوان والخطوط المحيطة بالخلفية السلبية للوحة", "د) يتحول من مجسم ثلاثي الأبعاد إلى شكل مسطح وجاف مفرغ من التدرجات"], answer: "ب) لا يختفي أو يضيع بصرياً وسط زحام العناصر الفرعية والتفاصيل المشتتة", explanation: "التغذية الراجعة: بدون سيادة محددة، يفتقد العمل الفني لبؤرة التركيز وتضيع الفكرة والقصة الإعلانية أو الفنية المراد توصيلها للجمهور." },
+            { id: 83, level: "expert", type: "mcq", question: "أي من الخصائص والعناصر التصميمية التالية تتحد وتتضافر معاً بكثافات معينة لتخلق إحساساً رائعاً بالإيقاع والحركة في اللوحات الثابتة؟", options: ["أ) الخطوط والاتجاهات والأشكال والملامس المتنوعة (Line, Shape & Texture)", "ب) نقطة تلاشٍ واحدة معزولة في فراغ سلبي جاف", "ج) المقاس المادي لورق الرسم والشركة المصنعة للفرشاة", "د) ثمن البرنامج الجرافييكي المستخدم ومواصفات الجهاز التقنية"], answer: "أ) الخطوط والاتجاهات والأشكال والملامس المتنوعة (Line, Shape & Texture)", explanation: "التغذية الراجعة: التفاعل والترتيب الإيقاعي للخطوط والكتل والملامس يحاكي فيزيائية الحركة في الطبيعة ويقود بصر المشاهد بسلاسة." },
+            { id: 84, level: "expert", type: "mcq", question: "(موقف) فنان يريد تصوير مشهد لجسر قديم يمتد في وسط ضباب كثيف وعميق، لكي يبرز 'المنظور الجوي والبعد المسافي' بأقوى مهارة عليه التركيز على:", options: ["أ) إبراز تفاصيل الكوبري والكتل البعيدة بوضوح هندسي حاد وجاف", "ب) تلاشي التدريجي للدرجات اللونية، وتراجع حدة التباينات، وبرودة ألوان الخلفية", "ج) جعل ألوان الخلفية البعيدة حمراء وبرتقالية صارخة لتنشيط البصر", "د) استخدام منظور هندسي ذي ثلاث نقاط تلاشٍ حادة ومتقاربة جداً"], answer: "ب) تلاشي التدريجي للدرجات اللونية، وتراجع حدة التباينات، وبرودة ألوان الخلفية", explanation: "التغذية الراجعة: الضباب والرطوبة يشتتان الضوء واللون مع زيادة المسافة، وهذا التلاشي اللوني والتباين المنخفض هو ركيزة المنظور الجوي." },
+            { id: 85, level: "expert", type: "mcq", question: "مفهوم 'ثبات الحجم' (Size Constancy) هو ظاهرة فسيولوجية ونفسية يعتمد عليها المصمم كلياً لتثبيت مبدأ وعلم:", options: ["أ) منظور النقطة الواحدة المواجه فقط", "ب) المنظور الحجمي والصنع البصري للمسافات (Size Perspective)", "ج) المنظور الجوي والغبش البصري للغلاف الجوي", "د) التقصير والتشويه الحاد لنسب الأجسام المندفعة"], answer: "ب) المنظور الحجمي والصنع البصري للمسافات (Size Perspective)", explanation: "التغذية الراجعة: يعتمد العقل البشري على ثبات الحجم لمعرفة مسافات الأجسام؛ فما صغر حجمه في اللوحة أدركه العقل فوراً بأنه يقع في الخلفية البعيدة." },
+            { id: 86, level: "expert", type: "mcq", question: "الخط في التكوين البصري الذي يتميز بقدرته الفائقة على 'تصوير بدقة متناهية لفكرة أو رمز تعبيري حركي خاص' يمثل إحدى الوظائف الأساسية لـ:", options: ["أ) النقطة المجردة والساكنة", "ب) الخط والمسار التعبيري المباشر (Line / Silhouette)", "ج) الفراغ السلبي الخالي من المعالم", "د) الألوان الباردة والخلفيات الضبابية"], answer: "ب) الخط والمسار التعبيري المباشر (Line / Silhouette)", explanation: "التغذية الراجعة: الخط هو الأداة التعبيرية والرمزية والتشخيصية الأولى التي تمكن يد الرسام من حصر فكرته وتوصيل معناها للعين البشرية." },
+            { id: 87, level: "expert", type: "mcq", question: "المجسمات 'الواقعية الملموسة' (Realistic Forms) تتميز بوجودها الفعلي والفيزيائي والجمالي في كادر:", options: ["أ) اللوحات والرسومات ثنائية الأبعاد والمسطحة فقط", "ب) الأجسام الحقيقية ثلاثية الأبعاد مثل المباني، المنحوتات، والمعلبات الفيزيائية", "ج) الخيال الفكري المجرد للفنان دون أي تمثيل مادي", "د) المستندات الورقية وتوقيعات الخط الحبري فقط"], answer: "ب) الأجسام الحقيقية ثلاثية الأبعاد مثل المباني، المنحوتات، والمعلبات الفيزيائية", explanation: "التغذية الراجعة: المجسم الواقعي يمتلك جُرماً مادياً حقيقياً في الفراغ الطبيعي، على عكس المجسم الإيهامي المرسوم على السطوح ثنائية الأبعاد." },
+            { id: 88, level: "expert", type: "mcq", question: "(فخ فني) أسلوب ورسم 'التقصير الحاد والمثير' (Foreshortening) يظهر بقوة وبشكل متكرر ومبهر في تصميمات وكادرات ومواقف:", options: ["أ) قصص الكوميكس والرسومات الكرتونية والبطولية المندفعة للأمام", "ب) لوحات الطبيعة الصامتة البعيدة والمحايدة كلياً", "ج) الخرائط والمساقط الجغرافية المسطحة والرسوم البيانية الهندسية", "د) توزيع الكتل النصية والجرافيكية في ملصقات الكتب والمجلات"], answer: "أ) قصص الكوميكس والرسومات الكرتونية والبطولية المندفعة للأمام", explanation: "التغذية الراجعة: اندفاع قبضة يد البطل الخارق أو وضعية طيرانه نحو القارئ هي التطبيق الأكاديمي والجمالي المثالي لقانون التقصير البصري." },
+            { id: 89, level: "expert", type: "mcq", question: "وصف الأسلوب الفني والمفهوم التكويني لبعض المصممين بـ 'العدم والغياب التام' يعني فنياً ونقدياً وعملياً:", options: ["أ) تلوين اللوحات باللون الأبيض والدرجات الساطعة جداً فقط", "ب) الغياب الكلي للهوية الشخصية والبصمة والملامح التعبيرية والإنشائية الفريدة للمبدع", "ج) ترك الكانفاس أو ورقة الرسم فارغة تماماً دون رسم أي خطوط", "د) تركيز الفنان كلياً على تلوين مساحات الفراغ السلبي فقط"], answer: "ب) الغياب الكلي للهوية الشخصية والبصمة والملامح التعبيرية والإنشائية الفريدة للمبدع", explanation: "التغذية الراجعة: الفنان الذي يفقد بصمته وهويته الخاصة وتناسق خطوطه يظل غائباً ونكرة في ساحات النقاد الفنية." },
+            { id: 90, level: "expert", type: "mcq", question: "ممارسة المصمم المتقدم لمراجعة توزيع الظل والنور لعمله بعيون 'نصف مغمضة' تهدف بصرياً ومهارياً إلى:", options: ["أ) إعطاء عين المصمم فرصة للاسترخاء من تعب الرسم الطويل", "ب) عزل الألوان للتركيز على 'التنظيم القيمي الصرف والتناغم الضوئي للمساحات'", "ج) تعديل زاوية الرؤية وحساب زوايا منظور النقطتين بذكاء أكبر", "د) التستر وإخفاء الأخطاء الطفيفة الواقعة في تخطيط الخطوط ثنائية الأبعاد"], answer: "ب) عزل الألوان للتركيز على 'التنظيم القيمي الصرف والتناغم الضوئي للمساحات'", explanation: "التغذية الراجعة: نصف الإغلاق يطمس التفاصيل الدقيقة ويشوش الألوان والصبغات مما يسمح للعين بملاحظة اتزان توزيع الضوء والظل كتل كتل." },
+            { id: 91, level: "expert", type: "mcq", question: "(موقف) في ملصق فيلم 'Nebraska' الإعلاني الفني، لم يُترك الفراغ التكويني والسلبي الواسع عبثاً أو بإهمال بل صُمم بوعي كامل من أجل:", options: ["أ) إتاحة مساحة كافية ومريحة لكتابة وتوزيع أسماء طاقم العمل والممثلين", "ب) تعزيز المعنى الفكري للفيلم، وتوجيه بصر المشاهد للرسالة النفسية والدرامية العميقة", "ج) تقليل استهلاك الحبر والصبغات الملونة عند طباعة البوسترات الإعلانية الكبيرة", "د) التغطية على ملامح الخلفية وإخفائها كلياً لعدم توفر صورة مرجعية بجودة عالية"], answer: "ب) تعزيز المعنى الفكري للفيلم، وتوجيه بصر المشاهد للرسالة النفسية والدرامية العميقة", explanation: "التغذية الراجعة: الفراغ في بوسترات الأفلام المستقلة والدرامية يتحدث بصمت، ويعزز إحساس المشاهد بمناخ القصة ومضمونها النفسي الحزين." },
+            { id: 92, level: "expert", type: "mcq", question: "any مما يلي يُعد بموجب تصنيفات 'ليندا روبن' بمثابة 'عنصر تصميمي أصيل وليس مبدأ جمالياً منظماً للأشكال'؟", options: ["أ) التوازن والانسجام الشكلي (Balance)", "ب) الخط ومساراته التعبيرية ثنائية الأبعاد (Line)", "ج) التركيز وبؤرة التوجيه البصري (Focus / Dominance)", "د) الوحدة البصرية الكلية المتسقة للعمل (Unity)"], answer: "ب) الخط ومساراته التعبيرية ثنائية الأبعاد (Line)", explanation: "التغذية الراجعة: الخط هو المادة التكوينية الخام (العنصر)، بينما التوازن والوحدة والتركيز هي القوانين والمبادئ الجمالية الحاكمة له." },
+            { id: 93, level: "expert", type: "mcq", question: "تسمى البؤرة البصرية الهندسية التي تلتقي عندها وتنحسر فيها خطوط الكادر الممتدة في لغة الرسم وعلم المنظور بالرمز العالمي المعتمد:", options: ["أ) LP", "ب) VP", "ج) CP", "د) SP"], answer: "ب) VP", explanation: "التغذية الراجعة: الرمز العالمي (VP) يعبر بدقة عن بؤرة اختفاء وانحسار الرؤية الهندسية للأبعاد المتوازية (Vanishing Point)." },
+            { id: 94, level: "expert", type: "mcq", question: "تتميز الصور ثلاثية الأبعاد والمولدة بالكمبيوتر (CGI) بصفة فريدة تمنح المشاهد إمكانية مذهلة هي:", options: ["أ) تحسس ملمس المواد والكتل فيزيائياً بأصابع اليد عبر شاشات العرض", "ب) رصد وتأمل وتدوير مجسم الكائن من أي زاوية أو عمق كأنه كائن طبيعي في الفضاء الرقمي", "ج) تغيير الأشكال وإعادة تلوينها ميكانيكياً بالورقة والقلم التقليدي المباشر", "د) لا يمكن إدراكها أو رؤيتها على شاشات العرض الرقمية دون استخدام نظارات الواقع الافتراضي"], answer: "ب) رصد وتأمل وتدوير مجسم الكائن من أي زاوية أو عمق كأنه كائن طبيعي في الفضاء الرقمي", explanation: "التغذية الراجعة: التجسيم الرقمي الحر يعتمد على بناء نماذج رياضية متكاملة بـ 360 درجة، مما يتيح التفاعل البصري اللانهائي مع الكائنات." },
+            { id: 95, level: "expert", type: "mcq", question: "(فخ فني) في المنظور الجوي واللوني، كيف تتغير معالم وصفات وشدة الظلال للأجسام والكتل المعمارية الواقعة في المسافات البعيدة والخلفيات؟", options: ["أ) تصبح سوداء داكنة جداً وحادة الحواف لإبراز الأبعاد وتمايزها البصري", "ب) تصبح فاتحة وباهتة وتتراجع حدتها وحدودها وتتلاشى تدريجياً نحو درجات الجو الباردة", "ج) تتحول لصبغات وتوهجات حمراء دافئة بفعل الانعكاسات الأرضية للظل", "د) تزداد عمقاً وتشبعاً لونياً بنسبة تفوق ألوان المقدمة لضبط السيادة المزدوجة"], answer: "ب) تصبح فاتحة وباهتة وتتراجع حدتها وحدودها وتتلاشى تدريجياً نحو درجات الجو الباردة", explanation: "التغذية الراجعة: التشتت الجوي يضعف قوة التباينات والظلال في المسافات الطويلة، فيجعل السواد يبهت تدريجياً ليقترب من لون السماء أو الرمادي الفاتح." },
+            { id: 96, level: "expert", type: "mcq", question: "صنع تأثير الإيحاء البصري بالتنغيم والتدرج الرمادي الوهمي (Half Tone) هو إحدى الوظائف البصرية والجمالية للخط الناتجة عن:", options: ["أ) مسح خطوط الرسم بقوة باستخدام ممحاة ناعمة ومحايدة", "ب) كثافة الخطوط وتكرارها وتقاربها المتقاطع المنسق بذكاء", "ج) رسم نقطة هندسية واحدة في مركز الفراغ السلبي للوحة", "د) استخدام قوانين المنظور الحجمي الصرف لتصغير مقاس الأشكال"], answer: "ب) كثافة الخطوط وتكرارها وتقاربها المتقاطع المنسق بذكاء", explanation: "التغذية الراجعة: كثافة الخطوط في تقنيات الرسم والتهشير تخلق خداعاً بصرياً رائعاً بالتدرجات والتنغيم والظلال التجسيمية." },
+            { id: 97, level: "expert", type: "mcq", question: "صياغة ودراسة المفاهيم المعمارية والبصرية الخاصة بـ 'المداخل المكانية والمسارات الهندسية المنظمة للرؤية' تقع مباشرة تحت تعريف التكوين عند المنظر:", options: ["أ) كلارك توم", "ب) جيوفري كاتر", "ج) ديفيد دابنر", "د) ليندا روبن"], answer: "ب) جيوفري كاتر", explanation: "التغذية الراجعة: كاتر ركز في فلسفته وتصنيفه للتكوينات على دراسة هندسة المداخل المكانية وتوجيه مسارات وحركة العين داخل الكتل." },
+            { id: 98, level: "expert", type: "mcq", question: "الأشكال (Shapes) في نظريات التصميم البصري توصف علمياً بأنها 'مناطق واضحة المعالم' لأنها:", options: ["أ) مطلية ومصممة بألوان فسفورية صارخة تلفت الانتباه تلقائياً", "ب) محددة ومحصورة هندسياً باتصال وتقاطع خطوط ثنائية الأبعاد أو تباين لوني صريح", "ج) تتحرك وتغير حجمها بشكل ديناميكي ومستمر داخل لوحة العرض", "د) تظهر وتضيء بشكل غامض في الظلام الدامس عند إطفاء الإضاءة المحيطة"], answer: "ب) محددة ومحصورة هندسياً باتصال وتقاطع خطوط ثنائية الأبعاد أو تباين لوني صريح", explanation: "التغذية الراجعة: التحديد الصارم والحد الخارجي هو الذي يمنح المساحة شكلها وهويتها التكوينية المستقلة عن محيطها السلبي." },
+            { id: 99, level: "expert", type: "mcq", question: "الغرض البصري والإدراكي والجمالي الرئيسي من صنع وهندسة الفراغ 'التصويري' (Pictorial Space) هو:", options: ["أ) توفير حيز ومساحة كافية لطباعة نصوص الإعلانات التجارية للعميل", "ب) خداع عقل وعين المشاهد بوجود عمق وبعد ثالث وهمي داخل مساحة رسم مسطحة", "ج) وضع وإبراز توقيع الفنان وسعره بوضوح تام دون تداخل مع الرسم", "د) تقليل وتوفير تكلفة حبر الطباعة وتسهيل تحضير الكانفاس يدوياً"], answer: "ب) خداع عقل وعين المشاهد بوجود عمق وبعد ثالث وهمي داخل مساحة رسم مسطحة", explanation: "التغذية الراجعة: الفراغ التصويري هو نافذة سحرية وهمية يفتحها المصمم بمهاراته المنظورية على سطح اللوحة المسطحة لخلق عوالم عميقة." },
+            { id: 100, level: "expert", type: "mcq", question: "ما هو 'الهدف الإنساني والجمالي والمهاري الأسمى' والمنشود من وراء دراسة وفهم قواعد الفنون والتكوين البصري؟", options: ["أ) معرفة أسماء وتواريخ ميلاد الفنانين الكلاسيكيين لتخزين المعرفة الجافة", "ب) القدرة على بناء وصياغة عمل فني وتصميم متكامل ومقنع بصرياً للجمهور", "ج) تيسير سبل تعلم مهارات الحساب والرياضيات المتقدمة للأكاديميين", "د) تشجيع الطلاب على شراء وشحن أدوات رسم وفوتوشوب باهظة الثمن دون هدف مسبق"], answer: "ب) القدرة على بناء وصياغة عمل فني وتصميم متكامل ومقنع بصرياً للجمهور", explanation: "التغذية الراجعة: التكوين والإنشاء البصري هو الروح التي تمنح الجسد الفني قوته التعبيرية وقدرته على التواصل بنجاح ونقل الرسالة للجمهور الإنساني بصمت مدهش." }
+        ];
 
-        let currentQuestionIndex = 0;
-        let selectedFilter = 'all'; 
-        let filteredQuestions = [...fullQuiz];
-        let userAnswers = {}; 
-        let bookmarks = new Set();
-        let totalTimeSeconds = 0;
+        // Ensure exactly 100 high-quality questions in active data
+        const questions = [...rawQuestions];
+        let currentIndex = 0;
+        let selectedDifficulty = "all";
+        let score = 0;
+        let startTime = Date.now();
         let timerInterval = null;
+        
+        // Track states for each of the 100 questions
+        let userProgress = Array.from({ length: 100 }, (_, i) => ({
+            id: i + 1,
+            answered: false,
+            selectedOption: null,
+            isCorrect: false,
+            bookmarked: false
+        }));
 
-        window.onload = function() {
-            initQuiz();
-        };
+        // Categories mapping
+        const categories = ["التكوين والإنشاء", "المنظور الهندسي", "عناصر التصميم", "الفراغ والكتلة", "الأساليب والضوء", "التحليل والإدراك"];
 
-        function initQuiz() {
-            const savedState = localStorage.getItem('quez_state_v3_ch7_verification');
-            if (savedState) {
-                try {
-                    const parsed = JSON.parse(savedState);
-                    userAnswers = parsed.userAnswers || {};
-                    bookmarks = new Set(parsed.bookmarks || []);
-                    totalTimeSeconds = parsed.totalTimeSeconds || 0;
-                } catch(e) {}
+        // Toast Helper
+        function showToast(message, type = "success") {
+            const toast = document.getElementById("toast");
+            const msgEl = document.getElementById("toastMsg");
+            const iconEl = document.getElementById("toastIcon");
+            
+            msgEl.textContent = message;
+            if (type === "error") {
+                iconEl.innerHTML = '<i class="fa-solid fa-circle-exclamation text-rose-500"></i>';
+            } else if (type === "bookmark") {
+                iconEl.innerHTML = '<i class="fa-solid fa-bookmark text-amber-500"></i>';
+            } else {
+                iconEl.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400"></i>';
             }
             
-            filterQuestionsList();
-            renderQuestion();
-            renderMatrix();
-            startTimer();
-            updateStats();
+            toast.classList.remove("translate-y-20", "opacity-0");
+            toast.classList.add("translate-y-0", "opacity-100");
+            
+            setTimeout(() => {
+                toast.classList.remove("translate-y-0", "opacity-100");
+                toast.classList.add("translate-y-20", "opacity-0");
+            }, 3000);
         }
 
+        // Initialize App on DOM Ready
+        window.addEventListener("DOMContentLoaded", () => {
+            startTimer();
+            renderQuestion();
+            renderMatrix();
+            updateStats();
+        });
+
+        // Live Timer
         function startTimer() {
-            if (timerInterval) clearInterval(timerInterval);
             timerInterval = setInterval(() => {
-                totalTimeSeconds++;
-                updateTimerDisplay();
-                saveStateToStorage();
+                const elapsedMs = Date.now() - startTime;
+                const totalSecs = Math.floor(elapsedMs / 1000);
+                const mins = String(Math.floor(totalSecs / 60)).padStart(2, '0');
+                const secs = String(totalSecs % 60).padStart(2, '0');
+                document.getElementById("timerText").textContent = `${mins}:${secs}`;
             }, 1000);
         }
 
-        function updateTimerDisplay() {
-            const minutes = Math.floor(totalTimeSeconds / 60);
-            const seconds = totalTimeSeconds % 60;
-            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            document.getElementById('timerText').innerText = display;
-        }
-
-        function setDifficultyFilter(level) {
-            selectedFilter = level;
-            ['all', 'direct', 'hard', 'expert', 'incorrect'].forEach(lvl => {
-                const btn = document.getElementById(`filter-${lvl}`);
-                if (!btn) return;
-                if (lvl === level) {
-                    btn.className = lvl === 'incorrect' 
-                        ? "px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-rose-600 text-white transition-all shadow-lg shadow-rose-600/10"
-                        : "px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-brand-600 text-white transition-all";
-                } else {
-                    btn.className = lvl === 'incorrect'
-                        ? "px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition-all"
-                        : "px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap text-slate-400 hover:text-slate-200 transition-all";
-                }
-            });
-
-            filterQuestionsList();
-            currentQuestionIndex = 0;
-            renderQuestion();
-            renderMatrix();
-            
-            const labelMap = { 'all': 'الكل', 'direct': 'مستوى 1', 'hard': 'مستوى 2', 'expert': 'مستوى 3', 'incorrect': 'الأخطاء' };
-            showToast(`تصفية الأسئلة: ${labelMap[level]}`);
-        }
-
-        function filterQuestionsList() {
-            if (selectedFilter === 'all') {
-                filteredQuestions = [...fullQuiz];
-            } else if (selectedFilter === 'incorrect') {
-                filteredQuestions = fullQuiz.filter(q => userAnswers[q.id] && !userAnswers[q.id].isCorrect);
+        // Toggle Dark/Light Mode
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById("themeIcon");
+            if (html.classList.contains("dark")) {
+                html.classList.remove("dark");
+                html.classList.add("light");
+                icon.className = "fa-solid fa-moon";
+                showToast("تم تفعيل المظهر المضيء");
             } else {
-                filteredQuestions = fullQuiz.filter(q => q.level === selectedFilter);
+                html.classList.remove("light");
+                html.classList.add("dark");
+                icon.className = "fa-solid fa-sun";
+                showToast("تم تفعيل المظهر المظلم بنجاح");
             }
-            
-            const labelMap = { 'all': 'الكل', 'direct': 'مستوى 1', 'hard': 'مستوى 2', 'expert': 'مستوى 3', 'incorrect': 'الأخطاء' };
-            document.getElementById('matrixFilterLabel').innerText = labelMap[selectedFilter];
         }
 
-        function saveStateToStorage() {
-            const state = {
-                userAnswers,
-                bookmarks: Array.from(bookmarks),
-                totalTimeSeconds
-            };
-            localStorage.setItem('quez_state_v3_ch7_verification', JSON.stringify(state));
-        }
-
+        // Render Current Question
         function renderQuestion() {
-            if (filteredQuestions.length === 0) {
-                document.getElementById('currentViewCount').innerText = `لا توجد أسئلة`;
-                document.getElementById('questionText').innerText = `لا توجد أسئلة تطابق الفلتر المختار حالياً.`;
-                document.getElementById('optionsContainer').innerHTML = "";
-                document.getElementById('explanationContainer').classList.add('hidden');
-                document.getElementById('prevBtn').disabled = true;
-                document.getElementById('nextBtn').disabled = true;
-                return;
-            }
+            const currentQ = questions[currentIndex];
+            const progressState = userProgress[currentQ.id - 1];
             
-            const question = filteredQuestions[currentQuestionIndex];
-            
-            document.getElementById('currentViewCount').innerText = `سؤال ${currentQuestionIndex + 1} من ${filteredQuestions.length}`;
-            document.getElementById('questionText').innerText = question.question;
-
-            const diffTag = document.getElementById('questionDifficultyTag');
-            if (question.level === 'direct') {
-                diffTag.innerText = "مستوى 1: مباشر";
+            // Set basic tags
+            document.getElementById("questionCategoryTag").textContent = getCategoryName(currentQ.id);
+            const diffTag = document.getElementById("questionDifficultyTag");
+            if (currentQ.level === "direct") {
+                diffTag.textContent = "مستوى 1: مباشر";
                 diffTag.className = "px-3 py-1 bg-teal-500/10 text-teal-400 rounded-full text-xs font-semibold";
-            } else if (question.level === 'hard') {
-                diffTag.innerText = "مستوى 2: صعب";
+            } else if (currentQ.level === "hard") {
+                diffTag.textContent = "مستوى 2: صعب";
                 diffTag.className = "px-3 py-1 bg-amber-500/10 text-amber-400 rounded-full text-xs font-semibold";
             } else {
-                diffTag.innerText = "مستوى 3: معقد";
+                diffTag.textContent = "مستوى 3: معقد";
                 diffTag.className = "px-3 py-1 bg-rose-500/10 text-rose-400 rounded-full text-xs font-semibold";
             }
 
-            const bookmarkIcon = document.getElementById('bookmarkBtn').querySelector('i');
-            if (bookmarks.has(question.id)) {
+            // Question Text
+            document.getElementById("questionText").textContent = currentQ.question;
+
+            // Options Container
+            const optContainer = document.getElementById("optionsContainer");
+            optContainer.innerHTML = "";
+            
+            currentQ.options.forEach(opt => {
+                const btn = document.createElement("button");
+                btn.className = "w-full text-right p-4 rounded-xl border text-sm font-semibold transition-all duration-200 flex items-center justify-between ";
+                
+                // Styling based on answer status
+                if (progressState.answered) {
+                    btn.disabled = true;
+                    if (opt === currentQ.answer) {
+                        // Correct Answer Style
+                        btn.className += "bg-emerald-500/20 border-emerald-500 text-emerald-400 light:text-emerald-700";
+                        btn.innerHTML = `<span>${opt}</span><i class="fa-solid fa-circle-check text-emerald-500"></i>`;
+                    } else if (opt === progressState.selectedOption) {
+                        // Wrong Choice Style
+                        btn.className += "bg-rose-500/20 border-rose-500 text-rose-400 light:text-rose-700";
+                        btn.innerHTML = `<span>${opt}</span><i class="fa-solid fa-circle-xmark text-rose-500"></i>`;
+                    } else {
+                        // Neutral option after answering
+                        btn.className += "border-slate-800 light:border-slate-200 opacity-40";
+                        btn.innerHTML = `<span>${opt}</span>`;
+                    }
+                } else {
+                    // Unanswered Hover Style
+                    btn.className += "border-slate-800 light:border-slate-200 hover:border-brand-500 hover:bg-brand-500/5 text-slate-300 light:text-slate-700";
+                    btn.innerHTML = `<span>${opt}</span>`;
+                    btn.onclick = () => handleAnswer(opt);
+                }
+                optContainer.appendChild(btn);
+            });
+
+            // Explanation & AI Feedback Panel
+            const explContainer = document.getElementById("explanationContainer");
+            const explText = document.getElementById("explanationText");
+            const aiWidget = document.getElementById("aiExplanationWidget");
+            
+            if (progressState.answered) {
+                explContainer.classList.remove("hidden");
+                explContainer.classList.add("flex");
+                explText.textContent = currentQ.explanation;
+                
+                // If answer was incorrect, highlight border in rose
+                if (!progressState.isCorrect) {
+                    explContainer.className = "flex flex-col gap-4 p-5 bg-slate-900/60 light:bg-slate-100/90 rounded-2xl border-r-4 border-rose-500 transition-all duration-300";
+                } else {
+                    explContainer.className = "flex flex-col gap-4 p-5 bg-slate-900/60 light:bg-slate-100/90 rounded-2xl border-r-4 border-emerald-500 transition-all duration-300";
+                }
+            } else {
+                explContainer.classList.add("hidden");
+                explContainer.classList.remove("flex");
+                aiWidget.classList.add("hidden");
+            }
+
+            // Bookmark Button Style
+            const bookmarkIcon = document.getElementById("bookmarkBtn").querySelector("i");
+            if (progressState.bookmarked) {
                 bookmarkIcon.className = "fa-solid fa-bookmark text-amber-500";
             } else {
                 bookmarkIcon.className = "fa-regular fa-bookmark text-slate-400";
             }
 
-            const optionsContainer = document.getElementById('optionsContainer');
-            optionsContainer.innerHTML = "";
-
-            let optionsList = [];
-            if (question.type === "tf") {
-                optionsList = ["صح", "خطأ"];
-            } else {
-                optionsList = question.options;
-            }
-
-            const answered = userAnswers[question.id];
-
-            optionsList.forEach(opt => {
-                const btn = document.createElement('button');
-                btn.className = "w-full text-right p-4 rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 border flex items-center justify-between ";
-                
-                const textSpan = document.createElement('span');
-                textSpan.innerText = opt;
-                btn.appendChild(textSpan);
-
-                const statusIcon = document.createElement('span');
-                statusIcon.innerHTML = `<i class="fa-regular fa-circle opacity-50"></i>`;
-                btn.appendChild(statusIcon);
-
-                if (!answered) {
-                    btn.classList.add("bg-slate-900/40", "border-slate-800", "hover:bg-slate-900", "text-slate-200", "light:bg-white", "light:border-slate-200", "light:hover:bg-slate-100", "light:text-slate-800");
-                    btn.onclick = () => selectOption(question.id, opt);
-                } else {
-                    btn.disabled = true;
-                    const isCurrentOption = answered.selectedOption === opt;
-                    const isCorrectOption = opt.includes(question.answer) || opt === question.answer;
-
-                    if (isCorrectOption) {
-                        btn.className = "w-full text-right p-4 rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 border flex items-center justify-between bg-emerald-500/10 border-emerald-500 text-emerald-400 light:bg-emerald-50";
-                        statusIcon.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-500"></i>`;
-                    } else if (isCurrentOption) {
-                        btn.className = "w-full text-right p-4 rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 border flex items-center justify-between bg-rose-500/10 border-rose-500 text-rose-400 light:bg-rose-50";
-                        statusIcon.innerHTML = `<i class="fa-solid fa-circle-xmark text-rose-500"></i>`;
-                    } else {
-                        btn.className = "w-full text-right p-4 rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 border flex items-center justify-between bg-slate-950/20 border-slate-800 text-slate-500";
-                    }
-                }
-                optionsContainer.appendChild(btn);
-            });
-
-            const explanationContainer = document.getElementById('explanationContainer');
-            const explanationText = document.getElementById('explanationText');
-            const aiWidget = document.getElementById('aiExplanationWidget');
-            const retryPlaceholder = document.getElementById('retrySingleQuestionPlaceholder');
-
-            if (answered) {
-                explanationContainer.classList.remove('hidden');
-                explanationContainer.classList.add('flex');
-                explanationText.innerText = question.explanation || "الإجابة الصحيحة هي: " + question.answer;
-                
-                // Show single retry button if the answer is incorrect
-                if (!answered.isCorrect) {
-                    retryPlaceholder.innerHTML = `
-                        <button onclick="retrySingleQuestion(${question.id})" class="flex items-center gap-1.5 px-3 py-1 bg-amber-600/20 hover:bg-amber-600/30 text-amber-400 rounded-lg text-xs font-bold transition-all border border-amber-500/30 ml-2" title="إعادة حل هذا السؤال">
-                            <i class="fa-solid fa-arrows-rotate"></i>
-                            <span>إعادة الحل</span>
-                        </button>
-                    `;
-                } else {
-                    retryPlaceholder.innerHTML = '';
-                }
-
-                const savedAiText = localStorage.getItem(`ai_explanation_v3_ch7_${question.id}`);
-                if (savedAiText) {
-                    aiWidget.classList.remove('hidden');
-                    aiWidget.classList.add('flex');
-                    document.getElementById('aiResponseText').innerText = savedAiText;
-                } else {
-                    aiWidget.classList.add('hidden');
-                }
-            } else {
-                explanationContainer.classList.add('hidden');
-                explanationContainer.classList.remove('flex');
-                aiWidget.classList.add('hidden');
-                retryPlaceholder.innerHTML = '';
-            }
-
-            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-            document.getElementById('nextBtn').disabled = currentQuestionIndex === filteredQuestions.length - 1;
+            // Update Progress Counts
+            document.getElementById("currentViewCount").textContent = `سؤال ${currentIndex + 1} من ${questions.length}`;
+            
+            // Prev / Next Buttons
+            document.getElementById("prevBtn").disabled = currentIndex === 0;
+            document.getElementById("nextBtn").disabled = currentIndex === questions.length - 1;
         }
 
-        function selectOption(questionId, selectedOpt) {
-            const question = fullQuiz.find(q => q.id === questionId);
-            const isCorrect = selectedOpt.includes(question.answer) || selectedOpt === question.answer;
+        // Category mapping helper
+        function getCategoryName(id) {
+            return categories[id % categories.length];
+        }
 
-            userAnswers[questionId] = {
-                selectedOption: selectedOpt,
-                isCorrect: isCorrect
-            };
+        // Answer Event Handler
+        function handleAnswer(selectedOption) {
+            const currentQ = questions[currentIndex];
+            const progressState = userProgress[currentQ.id - 1];
+            
+            progressState.answered = true;
+            progressState.selectedOption = selectedOption;
+            progressState.isCorrect = (selectedOption === currentQ.answer);
+            
+            if (progressState.isCorrect) {
+                score++;
+                showToast("إجابة صحيحة! قراءة بصرية ممتازة.");
+            } else {
+                showToast("إجابة غير دقيقة. راجع التصويب المرفق بالأسفل.", "error");
+            }
 
-            saveStateToStorage();
             renderQuestion();
             renderMatrix();
             updateStats();
-
-            if (isCorrect) {
-                showToast("إجابة صحيحة! أحسنتَ عملاً.", "success");
-            } else {
-                showToast("إجابة غير صحيحة، اقرأ التغذية الراجعة بالأسفل.", "error");
-            }
         }
 
+        // Render Question Matrix map (100 buttons)
         function renderMatrix() {
-            const matrixContainer = document.getElementById('questionMatrix');
-            matrixContainer.innerHTML = "";
-
-            filteredQuestions.forEach((q, idx) => {
-                const btn = document.createElement('button');
-                btn.className = "h-10 rounded-lg text-xs font-bold transition-all flex items-center justify-center border ";
-                btn.innerText = q.id;
-
-                const ans = userAnswers[q.id];
-                const isBookmarked = bookmarks.has(q.id);
-
-                if (idx === currentQuestionIndex) {
-                    btn.classList.add("ring-2", "ring-brand-500", "scale-105", "z-10");
+            const matrixGrid = document.getElementById("questionMatrix");
+            matrixGrid.innerHTML = "";
+            
+            userProgress.forEach((state, i) => {
+                const btn = document.createElement("button");
+                btn.className = "h-10 text-xs font-bold rounded-lg flex items-center justify-center transition-all ";
+                btn.textContent = state.id;
+                
+                // Styling matrix nodes based on response status
+                if (state.answered) {
+                    if (state.isCorrect) {
+                        btn.className += "bg-emerald-500 text-white shadow-lg shadow-emerald-500/10";
+                    } else {
+                        btn.className += "bg-rose-500 text-white shadow-lg shadow-rose-500/10";
+                    }
+                } else if (state.bookmarked) {
+                    btn.className += "bg-amber-500 text-white shadow-lg shadow-amber-500/10 animate-pulse";
+                } else {
+                    btn.className += "bg-slate-900 hover:bg-slate-800 text-slate-400 border border-slate-800 light:bg-slate-200 light:text-slate-600 light:border-slate-300";
                 }
 
-                if (ans) {
-                    if (ans.isCorrect) {
-                        btn.classList.add("bg-emerald-600/20", "border-emerald-500", "text-emerald-400");
-                    } else {
-                        btn.classList.add("bg-rose-600/20", "border-rose-500", "text-rose-400");
-                    }
-                } else if (isBookmarked) {
-                    btn.classList.add("bg-amber-600/20", "border-amber-500", "text-amber-400");
-                } else {
-                    btn.classList.add("bg-slate-900/60", "border-slate-800", "text-slate-400", "hover:bg-slate-800");
+                // Highlighting the active question in the matrix
+                if (questions[currentIndex].id === state.id) {
+                    btn.className += " ring-2 ring-brand-500 scale-105 z-10";
                 }
 
                 btn.onclick = () => {
-                    currentQuestionIndex = idx;
-                    renderQuestion();
-                    renderMatrix();
+                    const qIndex = questions.findIndex(q => q.id === state.id);
+                    if (qIndex !== -1) {
+                        currentIndex = qIndex;
+                        renderQuestion();
+                        renderMatrix();
+                    } else {
+                        showToast("هذا السؤال غير متوفر في التصفية الحالية.", "error");
+                    }
                 };
-
-                matrixContainer.appendChild(btn);
+                matrixGrid.appendChild(btn);
             });
         }
 
+        // Update Statistics
         function updateStats() {
-            const answeredCount = Object.keys(userAnswers).length;
-            const correctCount = Object.values(userAnswers).filter(a => a.isCorrect).length;
-            const incorrectCount = answeredCount - correctCount;
+            // Overall stats
+            const answeredCount = userProgress.filter(p => p.answered).length;
+            const correctCount = userProgress.filter(p => p.isCorrect).length;
+            const percentage = Math.round((answeredCount / 100) * 100);
+            
+            document.getElementById("progressText").textContent = `${answeredCount}/100 (${percentage}%)`;
+            document.getElementById("scoreText").textContent = correctCount;
 
-            document.getElementById('progressText').innerText = `${answeredCount}/100 (${answeredCount}%)`;
-            document.getElementById('scoreText').innerText = correctCount;
+            // Stats per difficulty
+            const directTotal = rawQuestions.filter(q => q.level === "direct").length;
+            const hardTotal = rawQuestions.filter(q => q.level === "hard").length;
+            const expertTotal = rawQuestions.filter(q => q.level === "expert").length;
 
-            const directQs = fullQuiz.filter(q => q.level === 'direct');
-            const hardQs = fullQuiz.filter(q => q.level === 'hard');
-            const expertQs = fullQuiz.filter(q => q.level === 'expert');
+            const directSolved = userProgress.filter(p => p.answered && rawQuestions[p.id - 1].level === "direct").length;
+            const hardSolved = userProgress.filter(p => p.answered && rawQuestions[p.id - 1].level === "hard").length;
+            const expertSolved = userProgress.filter(p => p.answered && rawQuestions[p.id - 1].level === "expert").length;
 
-            const answeredDirect = directQs.filter(q => userAnswers[q.id]).length;
-            const answeredHard = hardQs.filter(q => userAnswers[q.id]).length;
-            const answeredExpert = expertQs.filter(q => userAnswers[q.id]).length;
+            document.getElementById("statLevelDirect").textContent = `${directSolved}/${directTotal}`;
+            document.getElementById("statLevelHard").textContent = `${hardSolved}/${hardTotal}`;
+            document.getElementById("statLevelExpert").textContent = `${expertSolved}/${expertTotal}`;
 
-            document.getElementById('statLevelDirect').innerText = `${answeredDirect}/${directQs.length}`;
-            document.getElementById('statLevelHard').innerText = `${answeredHard}/${hardQs.length}`;
-            document.getElementById('statLevelExpert').innerText = `${answeredExpert}/${expertQs.length}`;
+            document.getElementById("barLevelDirect").style.width = `${(directSolved/directTotal)*100}%`;
+            document.getElementById("barLevelHard").style.width = `${(hardSolved/hardTotal)*100}%`;
+            document.getElementById("barLevelExpert").style.width = `${(expertSolved/expertTotal)*100}%`;
 
-            document.getElementById('barLevelDirect').style.width = `${(answeredDirect / directQs.length) * 100}%`;
-            document.getElementById('barLevelHard').style.width = `${(answeredHard / hardQs.length) * 100}%`;
-            document.getElementById('barLevelExpert').style.width = `${(answeredExpert / expertQs.length) * 100}%`;
-
-            // Handle Mistakes tab visibility and count
-            const incorrectBtn = document.getElementById('filter-incorrect');
-            if (incorrectCount > 0) {
-                incorrectBtn.classList.remove('hidden');
-                document.getElementById('incorrectFilterCount').innerText = incorrectCount;
+            // Incorrect filters count
+            const wrongCount = userProgress.filter(p => p.answered && !p.isCorrect).length;
+            const incorrectFilterBtn = document.getElementById("filter-incorrect");
+            document.getElementById("incorrectFilterCount").textContent = wrongCount;
+            if (wrongCount > 0) {
+                incorrectFilterBtn.classList.remove("hidden");
             } else {
-                incorrectBtn.classList.add('hidden');
-                if (selectedFilter === 'incorrect') {
-                    setDifficultyFilter('all');
+                incorrectFilterBtn.classList.add("hidden");
+                if (selectedDifficulty === "incorrect") {
+                    setDifficultyFilter("all");
                 }
             }
         }
 
+        // Navigation
         function nextQuestion() {
-            if (currentQuestionIndex < filteredQuestions.length - 1) {
-                currentQuestionIndex++;
+            if (currentIndex < questions.length - 1) {
+                currentIndex++;
                 renderQuestion();
                 renderMatrix();
             }
         }
 
+        // Prev Navigation
         function prevQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
+            if (currentIndex > 0) {
+                currentIndex--;
                 renderQuestion();
                 renderMatrix();
             }
         }
 
+        // Bookmarks toggler
         function toggleBookmark() {
-            const question = filteredQuestions[currentQuestionIndex];
-            if (bookmarks.has(question.id)) {
-                bookmarks.delete(question.id);
-                showToast("تمت الإزالة من المراجعة المؤجلة.");
+            const currentQ = questions[currentIndex];
+            const progressState = userProgress[currentQ.id - 1];
+            progressState.bookmarked = !progressState.bookmarked;
+            
+            if (progressState.bookmarked) {
+                showToast("تم وضع علامة مراجعة على السؤال.", "bookmark");
             } else {
-                bookmarks.add(question.id);
-                showToast("تم حفظ السؤال للمراجعة لاحقاً.", "success");
+                showToast("تم إزالة العلامة المرجعية.");
             }
-            saveStateToStorage();
             renderQuestion();
             renderMatrix();
         }
 
-        function retrySingleQuestion(questionId) {
-            if (userAnswers[questionId]) {
-                delete userAnswers[questionId];
-                saveStateToStorage();
-                
-                // If currently viewing wrong answers only, and we solved/cleared it, update the list
-                if (selectedFilter === 'incorrect') {
-                    filterQuestionsList();
-                    if (currentQuestionIndex >= filteredQuestions.length) {
-                        currentQuestionIndex = Math.max(0, filteredQuestions.length - 1);
-                    }
-                }
-                
-                renderQuestion();
-                renderMatrix();
-                updateStats();
-                showToast("تم تصفير الإجابة! يمكنك المحاولة مجدداً.");
-            }
-        }
-
-        function retryAllMistakes() {
-            let count = 0;
-            fullQuiz.forEach(q => {
-                if (userAnswers[q.id] && !userAnswers[q.id].isCorrect) {
-                    delete userAnswers[q.id];
-                    localStorage.removeItem(`ai_explanation_v3_ch7_${q.id}`);
-                    count++;
+        // Difficulty filter toggle
+        function setDifficultyFilter(mode) {
+            selectedDifficulty = mode;
+            
+            // Update UI buttons active state
+            const filters = ["all", "direct", "hard", "expert", "incorrect"];
+            filters.forEach(f => {
+                const btn = document.getElementById(`filter-${f}`);
+                if (!btn) return;
+                if (f === mode) {
+                    btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-brand-600 text-white transition-all";
+                } else {
+                    btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap text-slate-400 hover:text-slate-200 transition-all";
                 }
             });
 
-            if (count === 0) {
-                showToast("لا توجد أخطاء حالية لإعادة حلها!");
+            // Filter questions array
+            if (mode === "all") {
+                questions = [...rawQuestions];
+                document.getElementById("matrixFilterLabel").textContent = "الكل";
+            } else if (mode === "incorrect") {
+                const incorrectIds = userProgress.filter(p => p.answered && !p.isCorrect).map(p => p.id);
+                questions = rawQuestions.filter(q => incorrectIds.includes(q.id));
+                document.getElementById("matrixFilterLabel").textContent = "الخاطئة";
+            } else {
+                questions = rawQuestions.filter(q => q.level === mode);
+                document.getElementById("matrixFilterLabel").textContent = mode === "direct" ? "مستوى 1" : mode === "hard" ? "مستوى 2" : "مستوى 3";
+            }
+
+            currentIndex = 0;
+            if (questions.length === 0) {
+                showToast("لا يوجد أسئلة تطابق تصفيتك الحالية.", "error");
+                setDifficultyFilter("all");
                 return;
             }
-
-            saveStateToStorage();
-            closeResults();
-            setDifficultyFilter('all');
-            currentQuestionIndex = 0;
             renderQuestion();
             renderMatrix();
-            updateStats();
-            showToast(`تم مسح إجابات ${count} أسئلة خاطئة لتتمكن من حلها مجدداً بنجاح!`, "success");
+        }
+
+        // Browser Web Speech API for Arabic audio narration
+        function speakQuestion() {
+            const currentQ = questions[currentIndex];
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Stop ongoing speeches
+                
+                // Clean the text to read nicely
+                let textToRead = currentQ.question;
+                // Add short delay and option names
+                textToRead += ". الخيارات المتاحة هي: ";
+                currentQ.options.forEach(opt => {
+                    textToRead += opt + ". ";
+                });
+
+                const utterance = new SpeechSynthesisUtterance(textToRead);
+                utterance.lang = 'ar-SA';
+                utterance.rate = 0.95; // Slightly slower for crisp clarity
+                
+                window.speechSynthesis.speak(utterance);
+                showToast("جاري القراءة الصوتية للسؤال البصري...");
+            } else {
+                showToast("ميزة قارئ الصوت غير مدعومة في متصفحك الحالي.", "error");
+            }
+        }
+
+        // AI Explanation Generator using Gemini API with Exponential Backoff
+        async function triggerAiExplanation() {
+            const currentQ = questions[currentIndex];
+            const widget = document.getElementById("aiExplanationWidget");
+            const responseText = document.getElementById("aiResponseText");
+            
+            widget.classList.remove("hidden");
+            widget.classList.add("flex");
+            responseText.textContent = "جاري الاتصال بـ Quez AI لصياغة تحليل فني ونقدي معقد...";
+
+            const userPrompt = `أنت ناقد فني وأستاذ أكاديمي خبير في منصة Quez للثقافة البصرية. السؤال المطروح هو: "${currentQ.question}". الإجابة الصحيحة هي: "${currentQ.answer}". التفسير الأساسي المكتوب: "${currentQ.explanation}". قم بتقديم شرح موجز ومقنع جداً ومباشر للطلاب باللغة العربية لشرح لماذا هذه الإجابة هي الصحيحة تماماً ودحض بقية الخيارات المشبوهة بدقة فنية وجمالية ممتعة، لا تتجاوز 4 أسطر.`;
+            const systemPrompt = "أنت بروفيسور خبير في نظريات التكوين والتصميم والتصميم الجرافيكي وتعمل كمساعد برمجيات تعليمي لبق وذكي.";
+
+            try {
+                const response = await callGeminiWithRetry(userPrompt, systemPrompt);
+                responseText.textContent = response;
+            } catch (err) {
+                responseText.textContent = "عذراً، فشل الاتصال بالذكاء الاصطناعي حالياً. التوضيح والتصويب الأساسي كافي جداً وموثق للوصول للعمق المعرفي المطلوب.";
+            }
+        }
+
+        // Gemini Call with exponential backoff (Retry up to 5 times)
+        async function callGeminiWithRetry(prompt, systemInstruction) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+
+            let delay = 1000;
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        return data.candidates?.[0]?.content?.parts?.[0]?.text || "لم يتم الحصول على تحليل ملائم.";
+                    }
+                } catch (e) {
+                    // Retry
+                }
+                await new Promise(resolve => setTimeout(resolve, delay));
+                delay *= 2; // exponential backoff
+            }
+            throw new Error("Failed after 5 retries");
+        }
+
+        // Open Finish Dashboard Modal
+        function triggerFinishModal() {
+            const answeredCount = userProgress.filter(p => p.answered).length;
+            const correctCount = userProgress.filter(p => p.isCorrect).length;
+            const percentage = Math.round((correctCount / 100) * 100);
+
+            // Populate dashboard fields
+            document.getElementById("resTotalScore").textContent = `${correctCount}/100`;
+            document.getElementById("resPercent").textContent = `${percentage}%`;
+            document.getElementById("resCompleted").textContent = `${answeredCount}/100`;
+            document.getElementById("resTime").textContent = document.getElementById("timerText").textContent;
+
+            // Show dashboard
+            const dashboard = document.getElementById("resultsDashboard");
+            dashboard.classList.remove("hidden");
+            dashboard.classList.add("flex");
         }
 
         function closeResults() {
-            document.getElementById('resultsDashboard').classList.add('hidden');
-            showToast("تمت العودة للوحة الرئيسية.");
+            const dashboard = document.getElementById("resultsDashboard");
+            dashboard.classList.add("hidden");
+            dashboard.classList.remove("flex");
         }
 
-        async function triggerAiExplanation() {
-            const question = filteredQuestions[currentQuestionIndex];
-            const widget = document.getElementById('aiExplanationWidget');
-            const resText = document.getElementById('aiResponseText');
-
-            widget.classList.remove('hidden');
-            widget.classList.add('flex');
-            resText.innerHTML = `<span class="flex items-center gap-2"><i class="fa-solid fa-spinner animate-spin"></i> جاري الحصول على شرح تفاعلي إضافي من الذكاء الاصطناعي...</span>`;
-
-            const systemPrompt = "أنت معلم ذكاء اصطناعي متخصص في تقنيات ومصادر التعلم، كشف الأخبار الكاذبة، التزييف العميق (Deepfake)، وأساليب التحقق الرقمي والطب الشرعي للوجه وفحص الصور. قدم شرحًا موجزًا وشيقًا باللغة العربية الفصحى يوضح الفكرة التقنية خلف السؤال بوضوح تام.";
-            const userPrompt = `السؤال هو: "${question.question}". الإجابة الصحيحة هي: "${question.answer}". التفسير الأساسي: "${question.explanation}". اشرح الفكرة وراء هذا بذكاء.`;
-
-            let delay = 1000;
-            const maxRetries = 2;
-            
-            for (let attempt = 0; attempt <= maxRetries; attempt++) {
-                try {
-                    const apiKey = ""; 
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-
-                    const payload = {
-                        contents: [{ parts: [{ text: userPrompt }] }],
-                        systemInstruction: {
-                            parts: [{ text: systemPrompt }]
-                        },
-                    };
-
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        if (response.status === 429 && attempt < maxRetries) {
-                            await new Promise(resolve => setTimeout(resolve, delay));
-                            delay *= 2;
-                            continue;
-                        }
-                        throw new Error("API Limit reached");
-                    }
-
-                    const result = await response.json();
-                    const aiText = result.candidates?.[0]?.content?.parts?.[0]?.text;
-                    
-                    if (aiText) {
-                        resText.innerText = aiText;
-                        localStorage.setItem(`ai_explanation_v3_ch7_${question.id}`, aiText);
-                        showToast("تم الحصول على الشرح الذكي بنجاح!");
-                        return;
-                    }
-                } catch(err) {
-                    if (attempt === maxRetries) {
-                        resText.innerText = "تحليل وتوجيه ذكي من Quez AI: " + (question.explanation || "تعد أساليب التحري الرقمي والمنظمات المستقلة ركيزة لضمان كفاءة وصول الحقائق ومجابهة التزييف الرقمي المتصاعد.");
-                    }
-                }
-            }
-        }
-
-        function speakQuestion() {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-
-                const question = filteredQuestions[currentQuestionIndex];
-                const msg = new SpeechSynthesisUtterance(question.question);
-                msg.lang = 'ar-EG';
-                msg.rate = 0.95;
-                
-                const voices = window.speechSynthesis.getVoices();
-                const arVoice = voices.find(v => v.lang.startsWith('ar'));
-                if (arVoice) msg.voice = arVoice;
-
-                window.speechSynthesis.speak(msg);
-                showToast("قراءة السؤال بصوت الذكاء الاصطناعي...");
-            } else {
-                showToast("عذرًا، متصفحك لا يدعم القراءة الصوتية.", "error");
-            }
-        }
-
-        function triggerFinishModal() {
-            const answeredCount = Object.keys(userAnswers).length;
-            if (answeredCount < 10) {
-                showToast("يرجى حل 10 أسئلة على الأقل قبل معاينة التقرير النهائي للنتيجة!", "error");
-                return;
-            }
-            
-            const correctCount = Object.values(userAnswers).filter(a => a.isCorrect).length;
-            const percentage = Math.round((correctCount / fullQuiz.length) * 100);
-
-            document.getElementById('resTotalScore').innerText = `${correctCount}/${fullQuiz.length}`;
-            document.getElementById('resPercent').innerText = `${percentage}%`;
-            document.getElementById('resCompleted').innerText = `${answeredCount}/${fullQuiz.length}`;
-            
-            const incorrectCount = answeredCount - correctCount;
-            const retryMistakesBtn = document.getElementById('resRetryMistakesBtn');
-            if (incorrectCount > 0) {
-                retryMistakesBtn.classList.remove('hidden');
-            } else {
-                retryMistakesBtn.classList.add('hidden');
-            }
-
-            const minutes = Math.floor(totalTimeSeconds / 60);
-            const seconds = totalTimeSeconds % 60;
-            document.getElementById('resTime').innerText = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-
-            document.getElementById('resultsDashboard').classList.remove('hidden');
-        }
-
-        function copyScoresToClipboard() {
-            const correctCount = Object.values(userAnswers).filter(a => a.isCorrect).length;
-            const textToCopy = `لقد حصلت على درجة تميز ${correctCount} من 100 في التقييم التفاعلي لمقرر كشف التزييف والتحقق الرقمي على منصة Quez!`;
-            
-            const dummy = document.createElement("textarea");
-            document.body.appendChild(dummy);
-            dummy.value = textToCopy;
-            dummy.select();
-            document.execCommand('copy');
-            document.body.removeChild(dummy);
-
-            showToast("تم نسخ النتيجة لمشاركتها بنجاح! 🏆");
-        }
-
-        function toggleTheme() {
-            const html = document.documentElement;
-            const icon = document.getElementById('themeIcon');
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                icon.className = "fa-solid fa-moon";
-                showToast("تم تفعيل المظهر المضيء");
-            } else {
-                html.classList.remove('light');
-                html.classList.add('dark');
-                icon.className = "fa-solid fa-sun";
-                showToast("تم تفعيل المظهر الداكن");
-            }
-        }
-
-        function showToast(message, type = "info") {
-            const toast = document.getElementById('toast');
-            const msg = document.getElementById('toastMsg');
-            const icon = document.getElementById('toastIcon');
-
-            msg.innerText = message;
-            if (type === "success") {
-                icon.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-500"></i>`;
-            } else if (type === "error") {
-                icon.innerHTML = `<i class="fa-solid fa-circle-exclamation text-rose-500"></i>`;
-            } else {
-                icon.innerHTML = `<i class="fa-solid fa-circle-info text-brand-400"></i>`;
-            }
-
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
-
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
-        }
-
+        // Reset Quiz Modals
         function confirmReset() {
-            document.getElementById('resetModal').classList.remove('hidden');
+            const modal = document.getElementById("resetModal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
         }
 
         function closeResetModal() {
-            document.getElementById('resetModal').classList.add('hidden');
+            const modal = document.getElementById("resetModal");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
         }
 
         function resetQuiz() {
-            localStorage.removeItem('quez_state_v3_ch7_verification');
-            userAnswers = {};
-            bookmarks.clear();
-            totalTimeSeconds = 0;
-            currentQuestionIndex = 0;
+            userProgress = Array.from({ length: 100 }, (_, i) => ({
+                id: i + 1,
+                answered: false,
+                selectedOption: null,
+                isCorrect: false,
+                bookmarked: false
+            }));
             
-            fullQuiz.forEach(q => {
-                localStorage.removeItem(`ai_explanation_v3_ch7_${q.id}`);
-            });
+            score = 0;
+            currentIndex = 0;
+            startTime = Date.now();
+            questions = [...rawQuestions];
+            selectedDifficulty = "all";
 
             closeResetModal();
-            document.getElementById('resultsDashboard').classList.add('hidden');
+            closeResults();
+            renderQuestion();
+            renderMatrix();
+            updateStats();
+            showToast("تم إعادة تصفير تقدمك بالكامل في مقرر التكوين البصري.");
+        }
+
+        // Retry mistakes ONLY
+        function retryAllMistakes() {
+            const wrongIds = userProgress.filter(p => p.answered && !p.isCorrect).map(p => p.id);
+            if (wrongIds.length === 0) {
+                showToast("ليس لديك أي أخطاء مسجلة حالياً!", "success");
+                closeResults();
+                return;
+            }
+
+            // Reset progress specifically for wrong questions
+            userProgress.forEach(state => {
+                if (wrongIds.includes(state.id)) {
+                    state.answered = false;
+                    state.selectedOption = null;
+                    state.isCorrect = false;
+                }
+            });
+
+            closeResults();
+            setDifficultyFilter("incorrect");
+            showToast(`تم تصفية ${wrongIds.length} سؤال خاطئ بنجاح لإعادة المحاولة الآن.`);
+        }
+
+        // Clipboard result sharing
+        function copyScoresToClipboard() {
+            const correctCount = userProgress.filter(p => p.isCorrect).length;
+            const timer = document.getElementById("timerText").textContent;
+            const shareText = `🎨 لقد أتممت للتو تحدي 100 سؤال في مقرر (الثقافة البصرية: التكوين والإنشاء) وحققت درجة (${correctCount}/100) في زمن قدره ${timer} دقيقة عبر منصة Quez AI التفاعلية! جرب المنصة الآن واختبر مهاراتك البصرية!`;
             
-            initQuiz();
-            showToast("تمت إعادة تعيين المنصة بالكامل بنجاح!", "success");
+            const tempInput = document.createElement("textarea");
+            tempInput.value = shareText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            showToast("تم نسخ تقرير إنجازك الفني وصياغة المشاركة بنجاح!");
         }
     </script>
 </body>
 </html>
+
